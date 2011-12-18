@@ -1,4 +1,5 @@
 <% content_for :title, "Edit Question" %>
+<% content_for :js_include, javascript_include_tag('question') %>
 <br />
 <h2>Edit Question</h2>
 <div>
@@ -33,6 +34,24 @@
     </div>
     <div class="clear"></div>
     <br />
+    <div class="left" style="margin-left: 500px; font-weight: bold">Correct Option</div>
+    <div class="clear"></div>
+    <% @question.answers.each_with_index do |answer, i| %>
+      <div>
+        <div class="left" style="margin-right: 28px;">
+          <label>Option <%= @codes[i] %>:</label>
+        </div>
+        <div class="left">
+          <input name="option<%= i %>[option]" style="width: 398px" value="<%= answer.option %>" />
+          <input type="radio" id="option<%= i %>" value="<%= i %>" name="correct_option" style="margin-left: 50px;" value="<%= i %>" />
+          <% if answer.correct %>
+            <input type="hidden" id="correct_option_indx" value="<%= i %>" />
+          <% end %>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <br />
+    <% end %>
     <%= f.submit 'Save', :style => 'margin-left: 418px;' %>
   <% end %>
 </div>

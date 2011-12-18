@@ -6,7 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @codes = ['A', 'B', 'C', 'D']
+    @question = Question.find(params[:id], :include => :answers)
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end
 
@@ -15,12 +16,19 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create!(params[:question])
+    Question.transaction do
+      question = Question.create!(params[:question])
+      Answer.create_answers_for_question(params, question.id)
+    end
     redirect_to questions_path
   end
 
   def update
-    Question.find(params[:id]).update_attributes!(params[:question])
+    Question.transaction do
+      Question.find(params[:id]).update_attributes!(params[:question])
+      Answer.destroy_all(['question_id = ?', params[:id]])
+      Answer.create_answers_for_question(params, params[:id])
+    end
     redirect_to questions_path
   end
 

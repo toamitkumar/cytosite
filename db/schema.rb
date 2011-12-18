@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217232515) do
+ActiveRecord::Schema.define(:version => 20111218032323) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "option",      :limit => 512, :null => false
+    t.integer  "question_id"
+    t.boolean  "correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name",                     :null => false
