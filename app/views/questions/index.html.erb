@@ -1,0 +1,42 @@
+<% content_for :title, "All Questions" %>
+<% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'questions') %>
+<br />
+<h2>Questions</h2>
+<div>
+  <a href="<%= new_question_url %>">
+    <div class="big_button">
+      <%= image_tag 'add_small.png' %> New Question
+    </div>
+  </a>
+</div>
+<br />
+<div>
+  <% if @questions.size > 0 %>
+    <table id="questionsTable">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Category</th>
+          <th>Created On</th>
+          <th>Published</th>
+          <th bSortable=false>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @questions.each do |question| %>
+        <tr>
+          <td><%= link_to question.question, question_path(question.id) %></td>
+          <td><%= @categories[question.category_code] %></td>
+          <td><%= question.created_at.strftime("%Y-%m-%d") unless question.created_at.nil? %></td>
+          <td><%= question.published ? 'Yes' : 'No' %></td>
+          <td><%= link_to 'Delete', question_path(question.id), :method => :delete %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="justify">There are no questions in the tool yet.</p>
+  <% end %>
+  <% @questions.each do |question| %>    
+  <% end %>
+</div>

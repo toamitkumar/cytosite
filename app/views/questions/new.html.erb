@@ -1,0 +1,38 @@
+<% content_for :title, "New Question" %>
+<br />
+<h2>New Question</h2>
+<div>
+  <%= form_for Question.new, :url => questions_path do |f| %>
+    <div>
+      <div class="left" style="margin-right: 26px;">
+        <%= f.label 'Question:' %>
+      </div>
+      <div class="left">
+        <%= f.text_area :question, :rows => 2, :style => 'height: 70px;' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 25px;">
+        <%= f.label 'Category:' %>
+      </div>
+      <div class="left">
+        <%= f.select :category_code, @categories %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 10px;">
+        <%= f.label 'Explanation:' %>
+      </div>
+      <div class="left">
+        <%= f.text_area :explanation, :style => 'height: 105px;' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <%= f.submit 'Create', :style => 'margin-left: 418px;' %>
+  <% end %>
+</div>
