@@ -1,0 +1,22 @@
+<% content_for :title, "Browse Images" %>
+<% content_for :js_include, javascript_include_tag('images') %>
+<br />
+<h2>Browse Images</h2>
+<div>
+  <%= select_tag "categories", options_from_collection_for_select(@categories, :code, :name) %>
+</div>
+<div class="clear"></div>
+<br />
+<div>
+  <table id="browseImages">
+    <% @questions.each_with_index do |question, indx| %>
+      <% if ((indx + 1) % 4) == 1  %>
+        <tr>
+      <% end %>
+          <td><a href="<%= image_path(question.id) %>"<%= image_tag 'cyto/thumbnails/' + question.id.to_s + '.png' %></a></td>
+      <% if ((indx + 1) % 4) == 0  %>
+        </tr>
+      <% end %>
+    <% end %>
+    </table>
+</div>

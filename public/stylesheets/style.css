@@ -52,6 +52,11 @@ p .justify{
   vertical-align: middle;
 }
 
+#browseImages tr td{
+  width: 223px;
+  padding-left: 45px;
+}
+
 /* jCarousel Styles start */
 .carousel{
   padding-left: 130px;

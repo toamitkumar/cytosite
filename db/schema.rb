@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218032323) do
+ActiveRecord::Schema.define(:version => 20111219044035) do
 
   create_table "answers", :force => true do |t|
     t.string   "option",      :limit => 512, :null => false
@@ -32,13 +32,16 @@ ActiveRecord::Schema.define(:version => 20111218032323) do
   end
 
   create_table "questions", :force => true do |t|
-    t.string   "question",      :limit => 512,  :null => false
-    t.string   "explanation",   :limit => 1024, :null => false
-    t.string   "category_code", :limit => 10
+    t.string   "question",           :limit => 512,  :null => false
+    t.string   "explanation",        :limit => 1024, :null => false
+    t.string   "category_code",      :limit => 10
     t.integer  "sort_order"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
   end
 
 end

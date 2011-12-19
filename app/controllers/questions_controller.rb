@@ -1,3 +1,4 @@
+require 'image_science'
 class QuestionsController < ApplicationController
 
   def index
@@ -15,10 +16,13 @@ class QuestionsController < ApplicationController
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end
 
-  def create
-    Question.transaction do
+  def create    
+    Question.transaction do      
       question = Question.create!(params[:question])
       Answer.create_answers_for_question(params, question.id)
+      format = params[:upload]['datafile'].original_filename.split('.').last
+      ImageFile.save(params[:upload], question.id, format)
+      ImageFile.save_thumbnail(question.id, format)
     end
     redirect_to questions_path
   end

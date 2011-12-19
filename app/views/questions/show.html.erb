@@ -52,6 +52,9 @@
       <div class="clear"></div>
       <br />
     <% end %>
+    <div><%= link_to 'Add Tags to Image', edit_image_path(params[:id]) %></div>
+    <div class="clear"></div>
+    <br />
     <%= f.submit 'Save', :style => 'margin-left: 418px;' %>
   <% end %>
 </div>

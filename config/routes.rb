@@ -12,7 +12,7 @@ Cytosite::Application.routes.draw do
   
   match 'images/tags' => 'images#tags', :as => 'image_tags'
   match 'overview' => 'home#overview', :as => 'overview'
-  resources :questions
+  resources :questions, :images
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
