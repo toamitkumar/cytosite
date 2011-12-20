@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'hoe', '>= 1.5.3'
+gem 'hoe', '~> 1.5.3'
 gem 'rails', '3.0.6'
 
 gem 'mysql'
