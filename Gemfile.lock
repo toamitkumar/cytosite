@@ -76,6 +76,7 @@ PLATFORMS
 
 DEPENDENCIES
   RubyInline (= 3.7.0)
+  hoe (>= 1.5.3)
   image_science
   mysql
   rails (= 3.0.6)
