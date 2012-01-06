@@ -34,3 +34,19 @@ input.checkbox, input.radio {position:relative;top:.25em;}
 form.inline div, form.inline p {vertical-align:middle;}
 form.inline input.checkbox, form.inline input.radio, form.inline input.button, form.inline button {margin:0.5em 0;}
 button, input.button {position:relative;top:0.25em;}
+
+.jquery-notes-container .notes .note .border .bg,
+.jquery-notes-container .notes .offFocus,
+.jquery-notes-container .notes .offFocus .border {
+    filter:alpha(opacity=30);
+}
+.jquery-notes-container .notes .offFocus .border {
+    outline:1px solid #555;
+}
+.jquery-notes-container .notes .offFocus .border .bg {
+    filter:alpha(opacity=9);
+}
+.jquery-notes-container .notes .text,
+.jquery-notes-container .notes .note .text-box button {
+    filter:alpha(opacity=90);
+}

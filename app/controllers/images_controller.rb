@@ -1,14 +1,39 @@
 class ImagesController < ApplicationController
+  layout 'common'
 
   def index
-    @questions = Question.all
-    @questions = @questions.select{|cat| cat.category_code == params[:category_code]} unless params[:category_code].blank?
+    @images = Image.all
+    @images = @images.select{|cat| cat.category_code == params[:category_code]} unless params[:category_code].blank?
     @categories = Category.find(:all,
-      :conditions => ['code in (?)', @questions.map(&:category_code)],
-      :order => :name)    
+      :conditions => ['code in (?)', @images.map(&:category_code)],
+      :order => :name) unless @images.empty?
+  end
+
+  def new
+    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end
 
   def show
+    @image = Image.find(params[:id])
+    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+  end
+
+  def create
+    Image.transaction do
+      format = params[:upload]['datafile'].original_filename.split('.').last
+      params[:image][:format] = format
+      image = Image.create!(params[:image])
+      ImageFile.save(params[:upload], image.id, format)
+      ImageFile.save_thumbnail(image.id, format)
+    end
+    redirect_to images_path
+  end
+
+  def update
+    Image.transaction do
+      Image.find(params[:id]).update_attributes!(params[:image])
+    end
+    redirect_to images_path
   end
 
   def tags

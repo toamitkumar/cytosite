@@ -3,20 +3,32 @@
 <br />
 <h2>Browse Images</h2>
 <div>
-  <%= select_tag "categories", options_from_collection_for_select(@categories, :code, :name) %>
+  <a href="<%= new_image_url %>">
+    <div class="big_button">
+      <%= image_tag 'add_small.png' %> New Image
+    </div>
+  </a>
 </div>
-<div class="clear"></div>
 <br />
-<div>
-  <table id="browseImages">
-    <% @questions.each_with_index do |question, indx| %>
-      <% if ((indx + 1) % 4) == 1  %>
-        <tr>
+<% unless @images.empty? %>
+  <div>
+    <%= select_tag "categories", options_from_collection_for_select(@categories, :code, :name) %>
+  </div>
+  <div class="clear"></div>
+  <br />
+  <div>
+    <table id="browseImages">
+      <% @images.each_with_index do |image, indx| %>
+        <% if ((indx + 1) % 4) == 1  %>
+          <tr>
+        <% end %>
+          <td><a href="<%= image_path(image.id) %>"<%= image_tag 'cyto/thumbnails/' + image.id.to_s + '.' + image.format %></a></td>
+        <% if ((indx + 1) % 4) == 0  %>
+          </tr>
+        <% end %>
       <% end %>
-          <td><a href="<%= image_path(question.id) %>"<%= image_tag 'cyto/thumbnails/' + question.id.to_s + '.png' %></a></td>
-      <% if ((indx + 1) % 4) == 0  %>
-        </tr>
-      <% end %>
-    <% end %>
-    </table>
-</div>
+      </table>
+  </div>
+<% else %>
+  <div>There are no images added in the system.</div>
+<% end %>

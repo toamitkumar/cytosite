@@ -2,11 +2,11 @@
   <div class="left">
     <%= image_tag 'logo.JPG' %>
   </div>
+  <div class="register right">Welcome, <%= current_user.name %>!</div>
+  <br />
   <div class="register right">
-    <a>Login</a>&nbsp;|&nbsp;
-    <a>Register</a>&nbsp;|&nbsp;
-    <a>Contact Us</a>
-    <br />
+    <%= link_to 'Logout', destroy_user_session_path %>&nbsp;|&nbsp;
+    <a>Contact Us</a>&nbsp;|&nbsp;
     <input type="text" id="search" />
     <%= image_tag 'icon-search-small.gif' %>
   </div>

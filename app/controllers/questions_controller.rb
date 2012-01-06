@@ -1,5 +1,6 @@
 require 'image_science'
 class QuestionsController < ApplicationController
+  layout 'common'
 
   def index
     @questions = Question.all
@@ -20,9 +21,6 @@ class QuestionsController < ApplicationController
     Question.transaction do      
       question = Question.create!(params[:question])
       Answer.create_answers_for_question(params, question.id)
-      format = params[:upload]['datafile'].original_filename.split('.').last
-      ImageFile.save(params[:upload], question.id, format)
-      ImageFile.save_thumbnail(question.id, format)
     end
     redirect_to questions_path
   end
