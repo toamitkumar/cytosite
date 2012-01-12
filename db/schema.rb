@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120106154321) do
+ActiveRecord::Schema.define(:version => 20120111202415) do
 
   create_table "answers", :force => true do |t|
     t.string   "option",      :limit => 512, :null => false
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(:version => 20120106154321) do
     t.integer  "level"
     t.integer  "sort_order"
     t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "image_tags", :force => true do |t|
+    t.integer  "image_id"
+    t.integer  "note",                                      :null => false
+    t.integer  "author",                                    :null => false
+    t.integer  "link"
+    t.decimal  "x",          :precision => 10, :scale => 5
+    t.decimal  "y",          :precision => 10, :scale => 5
+    t.decimal  "width",      :precision => 10, :scale => 5
+    t.decimal  "height",     :precision => 10, :scale => 5
     t.datetime "created_at"
     t.datetime "updated_at"
   end

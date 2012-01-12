@@ -6,7 +6,7 @@ Cytosite::Application.routes.draw do
   match 'images/tags' => 'images#tags', :as => 'image_tags'
   match 'overview' => 'home#overview', :as => 'overview'
 
-  resources :questions, :images
+  resources :questions, :images, :tags
 
   root :to => "home#index"
 

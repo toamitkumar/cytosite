@@ -487,7 +487,8 @@ table.display thead th div.DataTables_sort_wrapper span {
     position:relative;
     padding:5px;
     margin-top:1px;
-    width:141px;
+    width:120px;
+    height: 150px;
     line-height:15px;
     font-family:verdana, sans-serif;
     font-size:10px;
