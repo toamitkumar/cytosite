@@ -1,0 +1,48 @@
+<% content_for :title, "New Image" %>
+<br />
+<h2>Image</h2>
+<div>
+  <%= form_for Image.new, :url => images_path, :html => {:multipart => true} do |f| %>
+    <div>
+      <div class="left" style="margin-right: 55px;">
+        <%= f.label 'Name:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 36px;">
+        <%= f.label 'Category:' %>
+      </div>
+      <div class="left">
+        <%= f.select :category_code, @categories %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 21px;">
+        <%= f.label 'description:' %>
+      </div>
+      <div class="left">
+        <%= f.text_area :description, :style => 'height: 105px;' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 10px;">
+        <label>Upload Image:</label>
+      </div>
+      <div class="left">
+        <%= file_field 'upload', 'datafile' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <%= f.submit 'Create', :style => 'margin-left: 418px;' %>
+  <% end %>
+</div>
