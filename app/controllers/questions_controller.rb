@@ -1,13 +1,14 @@
 require 'image_science'
 class QuestionsController < ApplicationController
   layout 'common'
+  before_filter :admin_resource?, :except => [:show]
 
   def index
     @questions = Question.all
     @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
   end
 
-  def show
+  def edit
     @codes = ['A', 'B', 'C', 'D']
     @question = Question.find(params[:id], :include => :answers)
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}

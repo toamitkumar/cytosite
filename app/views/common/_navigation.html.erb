@@ -1,12 +1,11 @@
 <div id="navigation_bar">
   <ul>
-    <li><%= link_to 'Home', root_url %>&nbsp;|&nbsp;</li>
-    <li><%= link_to 'Overview', overview_url %>&nbsp;|&nbsp;</li>
-    <li><%= link_to 'Images', images_url %>&nbsp;|&nbsp;</li>
-    <li><a>Cases</a>&nbsp;|&nbsp;</li>
-    <li><a>Self Assessment</a>&nbsp;|&nbsp;</li>
-    <li><a>Submit Cases</a>&nbsp;|&nbsp;</li>
-    <li><a>Contributors</a>&nbsp;|&nbsp;</li>
-    <li><%= link_to 'Upload', questions_url %></li>
+    <li><%= link_to 'Home', root_url %></li>
+    <li>&nbsp;|&nbsp;<%= link_to 'Overview', overview_url %></li>
+    <li>&nbsp;|&nbsp;<%= link_to 'Images', images_url %></li>
+    <li>&nbsp;|&nbsp;<a>Self Assessment</a></li>
+    <% if current_user.admin? %>
+      <li>&nbsp;|&nbsp;<%= link_to 'Admin', images_url %></li>
+    <% end %>
   </ul>
 </div>

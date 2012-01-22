@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  before_filter :admin_resource?, :except => [:show]
 
   def show
     tags = ImageTag.find_all_by_image_id(params[:id])

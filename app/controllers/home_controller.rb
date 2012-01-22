@@ -8,4 +8,7 @@ class HomeController < ApplicationController
     @categories = Category.all(:order => :sort_order)
   end
 
+  def not_authorized
+  end
+
 end

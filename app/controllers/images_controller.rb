@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   layout 'common'
+  before_filter :admin_resource?, :except => [:show, :index]
 
   def index
     @images = Image.all
@@ -13,7 +14,7 @@ class ImagesController < ApplicationController
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end
 
-  def show
+  def edit
     @image = Image.find(params[:id])
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end

@@ -1,9 +1,11 @@
 #Creating default users
-User.create!(:email => 'samik2803@gmail.com', :name => 'Samik Pal', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd')
-User.create!(:email => 'toamutkumar@gmail.com', :name => 'Amit Kumar', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd')
-User.create!(:email => 'asaqi@hotmail.com', :name => 'Anjali Saqi', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd')
+User.destroy_all
+User.create!(:email => 'samik2803@gmail.com', :name => 'Samik Pal', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
+User.create!(:email => 'toamitkumar@gmail.com', :name => 'Amit Kumar', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
+User.create!(:email => 'asaqi@hotmail.com', :name => 'Anjali Saqi', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
 
 #Creating categories
+Category.destroy_all
 overview = Category.create(:name => "Overview", :code => "overview", :parent_id => nil, :level => "0", :sort_order => "1")
 general = Category.create(:name => "General", :code => "general", :parent_id => overview.id, :level => "1", :sort_order => "2")
 Category.create(:name => "Exfoliated cytology", :code => "exfoliated", :parent_id => general.id, :level => "2", :sort_order => "3")

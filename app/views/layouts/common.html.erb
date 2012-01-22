@@ -14,6 +14,9 @@
       <%= render :partial => 'common/header' %>
       <div class="clear"></div>
       <%= render :partial => 'common/navigation' %>
+      <% if current_user.admin? && params[:controller] != 'home' %>
+        <%= render :partial => 'common/admin_menu' %>
+      <% end %>
       <%= yield %>
     </div>
     <%= render :partial => 'common/footer' %>

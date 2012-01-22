@@ -5,6 +5,7 @@ Cytosite::Application.routes.draw do
   
   match 'images/tags' => 'images#tags', :as => 'image_tags'
   match 'overview' => 'home#overview', :as => 'overview'
+  match 'not_authorized', :to => 'home#not_authorized'
 
   resources :questions, :images, :tags
 
