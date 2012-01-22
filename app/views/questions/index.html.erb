@@ -25,7 +25,7 @@
       <tbody>
         <% @questions.each do |question| %>
         <tr>
-          <td><%= link_to question.question, question_path(question.id) %></td>
+          <td><%= link_to question.question, edit_question_path(question.id) %></td>
           <td><%= @categories[question.category_code] %></td>
           <td><%= question.created_at.strftime("%Y-%m-%d") unless question.created_at.nil? %></td>
           <td><%= question.published ? 'Yes' : 'No' %></td>

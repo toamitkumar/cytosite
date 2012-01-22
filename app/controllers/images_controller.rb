@@ -10,6 +10,11 @@ class ImagesController < ApplicationController
       :order => :name) unless @images.empty?
   end
 
+  def show
+    @image = Image.find(params[:id])
+    @category = Category.find_by_code(@image.category_code)
+  end
+
   def new
     @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
   end

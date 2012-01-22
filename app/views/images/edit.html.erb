@@ -1,0 +1,38 @@
+<% content_for :title, "Image" %>
+<% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
+<br />
+<h2>Image</h2>
+<div class="left">
+  <%= image_tag '/images/cyto/' + params[:id] + '.' + @image.format, :class => 'jquery-note_1-1' %>
+</div>
+<div class="left" style="padding-left: 20px">
+  <%= form_for @image, :url => image_path do |f| %>
+    <div class="left" style="margin-right: 55px;">
+      <%= f.label 'Name:' %>
+    </div>
+    <div class="left">
+      <%= f.text_field :name %>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div class="left" style="margin-right: 36px;">
+      <%= f.label 'Category:' %>
+    </div>
+    <div class="left">
+      <%= f.select :category_code, @categories %>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div class="left" style="margin-right: 21px;">
+      <%= f.label 'Description:' %>
+    </div>
+    <div class="left">
+      <%= f.text_area :description, :style => 'height: 105px; width: 200px;' %>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <%= f.submit 'Save', :style => 'margin-left: 246px;' %>
+  <% end %>
+</div>
+<input type="hidden" id="image_id" value="<%= params[:id] %>" />
+<input type="hidden" id="edit_notes" value="true" />

@@ -6,32 +6,19 @@
   <%= image_tag '/images/cyto/' + params[:id] + '.' + @image.format, :class => 'jquery-note_1-1' %>
 </div>
 <div class="left" style="padding-left: 20px">
-  <%= form_for @image, :url => image_path do |f| %>
-    <div class="left" style="margin-right: 55px;">
-      <%= f.label 'Name:' %>
-    </div>
-    <div class="left">
-      <%= f.text_field :name %>
-    </div>
-    <div class="clear"></div>
-    <br />
-    <div class="left" style="margin-right: 36px;">
-      <%= f.label 'Category:' %>
-    </div>
-    <div class="left">
-      <%= f.select :category_code, @categories %>
-    </div>
-    <div class="clear"></div>
-    <br />
-    <div class="left" style="margin-right: 21px;">
-      <%= f.label 'description:' %>
-    </div>
-    <div class="left">
-      <%= f.text_area :description, :style => 'height: 105px; width: 200px;' %>
-    </div>
-    <div class="clear"></div>
-    <br />
-    <%= f.submit 'Save', :style => 'margin-left: 246px;' %>
-  <% end %>
+  <div class="left" style="margin-right: 52px;">Name:</div>
+  <div class="left"><%=  @image.name %></div>
+  <div class="clear"></div>
+  <br />
+  <div class="left" style="margin-right: 36px;">Category:</div>
+  <div class="left"><%= @category.name %></div>
+  <div class="clear"></div>
+  <br />
+  <div class="left" style="margin-right: 21px;">Description:</div>
+  <div class="left"><%= @image.description %>
+  </div>
+  <div class="clear"></div>
+  <br />
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
+<input type="hidden" id="edit_notes" value="false" />
