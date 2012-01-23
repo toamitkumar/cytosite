@@ -2,7 +2,7 @@
   <div class="justify">
     <strong><%= @is_correct? 'Correct' : 'Wrong' %></strong>
   </div>
-  <% if @is_correct %>
+  <% unless @is_correct %>
     <div class="justify"><%= 'Correct Option: ' + @correct_answer.option %></div>
   <% end %>
   <div class="justify"><%= 'Explanation: ' + @question.explanation %></div>  
