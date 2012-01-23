@@ -1,0 +1,41 @@
+<% content_for :title, "New Assessment" %>
+<br />
+<h2>New Assessment</h2>
+<div>
+  <%= form_for Assessment.new, :url => assessments_path do |f| %>
+    <div>
+      <div class="left" style="margin-right: 53px;">
+        <%= f.label 'Name:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :name, :rows => 2 %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 21px;">
+        <%= f.label 'Description:' %>
+      </div>
+      <div class="left">
+        <%= f.text_area :description, :style => 'height: 105px;' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 36px;">
+        <%= f.label 'Category:' %>
+      </div>
+      <div class="left">
+        <%= f.select :category_code, @categories %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div id="questions">
+      <%= render :partial => 'questions/assessment_questions' %>
+    </div>
+    <%= f.submit 'Create', :style => 'margin-left: 418px;' %>
+  <% end %>
+</div>

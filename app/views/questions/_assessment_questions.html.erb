@@ -1,0 +1,13 @@
+<div class="left" style="margin-right: 53px;">
+  <label>Questions:</label>
+</div>
+<div class="left">
+  <% (1..10).each do %>
+    <div>
+      <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question") %>
+      <br />
+      <br />
+    </div>
+  <% end %>
+</div>
+<div class="clear"></div>

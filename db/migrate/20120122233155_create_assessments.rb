@@ -3,6 +3,7 @@ class CreateAssessments < ActiveRecord::Migration
     create_table 'assessments' do |t|
       t.string :name, :limit => 255, :null => false
       t.string :description, :limit => 1024, :null => false
+       t.string :category_code, :limit => 20
       t.timestamps
     end
     create_table 'assessment_questions' do |t|

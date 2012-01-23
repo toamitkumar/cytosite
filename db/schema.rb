@@ -28,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20120122233155) do
   end
 
   create_table "assessments", :force => true do |t|
-    t.string   "name",                        :null => false
-    t.string   "description", :limit => 1024, :null => false
+    t.string   "name",                          :null => false
+    t.string   "description",   :limit => 1024, :null => false
+    t.string   "category_code", :limit => 20
     t.datetime "created_at"
     t.datetime "updated_at"
   end
