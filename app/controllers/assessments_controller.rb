@@ -15,9 +15,6 @@ class AssessmentsController < ApplicationController
   def create
     Assessment.transaction do
       assessment = Assessment.create!(params[:assessment])
-      puts '//////////////////////'
-      puts params[:questions].inspect
-      puts '//////////////////////'
       AssessmentQuestion.create_questions_for_assessment(params[:questions], assessment.id)
     end
     redirect_to assessments_path

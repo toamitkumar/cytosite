@@ -35,6 +35,11 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+  def assessment_questions
+    @questions = Question.find_all_by_category_code(params[:id])
+    render :partial => 'assessment_questions'
+  end
+
   def destroy
     Question.find(params[:id]).destroy
     redirect_to questions_path

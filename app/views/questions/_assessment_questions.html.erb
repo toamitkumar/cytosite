@@ -1,13 +1,17 @@
-<div class="left" style="margin-right: 53px;">
-  <label>Questions:</label>
-</div>
-<div class="left">
-  <% (1..10).each do %>
-    <div>
-      <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question") %>
-      <br />
-      <br />
-    </div>
-  <% end %>
-</div>
+<% unless @questions.empty? %>
+  <div class="left" style="margin-right: 53px;">
+    <label>Questions:</label>
+  </div>
+  <div class="left">
+    <% (1..10).each do %>
+      <div>
+        <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question") %>
+        <br />
+        <br />
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="justify">There are no questions for this category in the tool yet.</p>
+<% end %>
 <div class="clear"></div>
