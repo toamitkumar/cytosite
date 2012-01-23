@@ -7,7 +7,7 @@ Cytosite::Application.routes.draw do
   match 'overview' => 'home#overview', :as => 'overview'
   match 'not_authorized', :to => 'home#not_authorized'
 
-  resources :tags
+  resources :tags, :users
 
   resources :questions do
     member do

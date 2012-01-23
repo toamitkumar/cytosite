@@ -5,6 +5,7 @@
   <div class="register right">Welcome, <%= current_user.name %>!</div>
   <br />
   <div class="register right">
+    <%= link_to 'User Settings', user_path(current_user.id) %>&nbsp;|&nbsp;
     <%= link_to 'Logout', destroy_user_session_path %>&nbsp;|&nbsp;
     <a>Contact Us</a>
   </div>

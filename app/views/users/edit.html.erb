@@ -1,0 +1,69 @@
+<% content_for :title, "Edit User" %>
+<br />
+<h2>Edit User</h2>
+<div>
+  <%= form_for @user, :url => user_path do |f| %>
+    <div>
+      <div class="left" style="margin-right: 123px;">
+        <%= f.label 'Name:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 126px;">
+        <%= f.label 'Email:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :email, :disabled => true %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 132px;">
+        <%= f.label 'Role:' %>
+      </div>
+      <div class="left">
+        <%= f.select :role, [['Administrator', 'admin'], ['User', 'user']] %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 55px;">
+        <%= f.label 'Current Password:' %>
+      </div>
+      <div class="left">
+        <%= f.password_field :current_password %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 100px;">
+        <%= f.label 'Password:' %>
+      </div>
+      <div class="left">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 25px;">
+        <%= f.label 'Password Confirmation:' %>
+      </div>
+      <div class="left">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <%= link_to 'cancel', users_path, :style => 'margin-left: 271px;' %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>
