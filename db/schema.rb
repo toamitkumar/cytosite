@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120122233155) do
   create_table "assessment_questions", :force => true do |t|
     t.integer  "assessment_id"
     t.integer  "question_id"
+    t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
