@@ -8,14 +8,23 @@ class QuestionsController < ApplicationController
     @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
   end
 
+  def show
+    @question = Question.find(params[:id], :include => :answers)
+    @image = Image.find(@question.image_id)
+    @assessment = Assessment.find(params[:assessment_id])
+    @assessment_question = AssessmentQuestion.find_by_question_id_and_assessment_id(@question.id, @assessment.id)
+  end
+
   def edit
     @codes = ['A', 'B', 'C', 'D']
     @question = Question.find(params[:id], :include => :answers)
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = Category.all(:order => 'sort_order').collect {|c| [c.name, c.code]}
+    @images = Image.find_all_by_category_code(@question.category_code)
   end
 
   def new
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = Category.all(:order => 'sort_order').collect {|c| [c.name, c.code]}
+    @images = Image.find_all_by_category_code('overview')
   end
 
   def create    

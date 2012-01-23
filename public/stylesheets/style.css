@@ -75,6 +75,12 @@ p .justify{
   vertical-align: middle;
 }
 
+.assessment_begin_button{
+  width: 45px;
+  padding: 5px;
+  background: #4CC417;
+}
+
 #browseImages tr td{
   width: 223px;
   padding-left: 45px;

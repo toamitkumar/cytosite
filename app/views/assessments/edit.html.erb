@@ -1,0 +1,42 @@
+<% content_for :title, "Edit Assessment" %>
+<% content_for :js_include, javascript_include_tag('assessment') %>
+<br />
+<h2>Edit Assessment</h2>
+<div>
+  <%= form_for @assessment, :url => assessment_path do |f| %>
+    <div>
+      <div class="left" style="margin-right: 53px;">
+        <%= f.label 'Name:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :name, :rows => 2 %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 21px;">
+        <%= f.label 'Description:' %>
+      </div>
+      <div class="left">
+        <%= f.text_area :description, :style => 'height: 105px;' %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div>
+      <div class="left" style="margin-right: 36px;">
+        <%= f.label 'Category:' %>
+      </div>
+      <div class="left">
+        <%= f.select :category_code, @categories %>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <br />
+    <div id="questions">
+      <%= render :partial => 'questions/assessment_questions' %>
+    </div>
+    <%= f.submit 'Save', :style => 'margin-left: 418px;' %>
+  <% end %>
+</div>

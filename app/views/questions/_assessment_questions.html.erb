@@ -1,11 +1,15 @@
 <% unless @questions.empty? %>
-  <div class="left" style="margin-right: 53px;">
+  <div class="left" style="margin-right: 30px;">
     <label>Questions:</label>
   </div>
   <div class="left">
-    <% (1..10).each do %>
+    <% (1..10).each do |indx| %>
       <div>
-        <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question") %>
+        <% if @assessment_questions.nil? %>
+          <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question") %>
+        <% else %>
+          <%= select_tag "questions[]", options_from_collection_for_select(@questions, "id", "question", @assessment_questions[indx]) %>
+        <% end %>
         <br />
         <br />
       </div>

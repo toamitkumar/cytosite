@@ -1,0 +1,10 @@
+<% content_for :title, @assessment.name %>
+<br />
+<h2><%= @assessment.name %></h2>
+<div><%= @assessment.description %></div>
+<br />
+<div>
+  <a href="<%= question_path(@question_id, :assessment_id => @assessment.id) %>">
+    <div class="big_button assessment_begin_button">Begin</div>
+  </a>
+</div>

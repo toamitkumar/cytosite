@@ -2,14 +2,16 @@
 <% content_for :js_include, javascript_include_tag('images') %>
 <br />
 <h2>Browse Images</h2>
-<div>
-  <a href="<%= new_image_url %>">
-    <div class="big_button">
-      <%= image_tag 'add_small.png' %> New Image
-    </div>
-  </a>
-</div>
-<br />
+<% if current_user.admin? %>
+  <div>
+    <a href="<%= new_image_url %>">
+      <div class="big_button">
+        <%= image_tag 'add_small.png' %> New Image
+      </div>
+    </a>
+  </div>
+  <br />
+<% end %>
 <% unless @images.empty? %>
   <div>
     <%= select_tag "categories", options_from_collection_for_select(@categories, :code, :name) %>

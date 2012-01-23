@@ -2,14 +2,16 @@
 <% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'assessments') %>
 <br />
 <h2>Self Assessments</h2>
-<div>
-  <a href="<%= new_assessment_url %>">
-    <div class="big_button" style="width: 157px;">
-      <%= image_tag 'add_small.png' %> New Assessment
-    </div>
-  </a>
-</div>
-<br />
+<% if current_user.admin? %>
+  <div>
+    <a href="<%= new_assessment_url %>">
+      <div class="big_button" style="width: 157px;">
+        <%= image_tag 'add_small.png' %> New Assessment
+      </div>
+    </a>
+  </div>
+  <br />
+<% end %>
 <div>
   <% if @assessments.size > 0 %>
     <table id="questionsTable">
@@ -24,7 +26,9 @@
       <tbody>
         <% @assessments.each do |assessment| %>
         <tr>
-          <td><%= link_to assessment.name, edit_assessment_path(assessment.id) %></td>
+          <% assessment_path = assessment_path(assessment.id) %>
+          <% assessment_path = edit_assessment_path(assessment.id) if current_user.admin? %>
+          <td><%= link_to assessment.name, assessment_path %></td>
           <td><%= @categories[assessment.category_code] %></td>
           <td><%= assessment.created_at.strftime("%Y-%m-%d") unless assessment.created_at.nil? %></td>
           <td><%= link_to 'Delete', assessment_path(assessment.id), :method => :delete %></td>
