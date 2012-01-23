@@ -81,6 +81,31 @@ p .justify{
   background: #4CC417;
 }
 
+.assessment_next_button{
+  width: 37px;
+  padding: 5px;
+}
+
+.assessment_finish_button{
+  width: 45px;
+  padding: 5px;
+}
+
+.done_button{
+  width: 41px;
+  padding: 5px;
+}
+
+.submit_button{
+  width: 54px;
+  padding: 5px;
+}
+
+.previous_button{
+  width: 72px;
+  padding: 5px;
+}
+
 #browseImages tr td{
   width: 223px;
   padding-left: 45px;

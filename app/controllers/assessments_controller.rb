@@ -1,6 +1,6 @@
 class AssessmentsController < ApplicationController
   layout 'common'
-  before_filter :admin_resource?, :except => [:show, :index]
+  before_filter :admin_resource?, :except => [:show, :index, :summary]
 
   def index
     @assessments = Assessment.all
@@ -47,6 +47,10 @@ class AssessmentsController < ApplicationController
       AssessmentQuestion.destroy_all(:assessment_id => params[:id])
     end
     redirect_to assessments_path
+  end
+
+  def summary
+    @assessment = Assessment.find(params[:id], :include => :questions)
   end
 
 end

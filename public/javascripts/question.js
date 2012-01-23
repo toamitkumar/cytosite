@@ -1,7 +1,6 @@
 jQuery(document).ready(function() {
   jQuery('#option' + jQuery('#correct_option_indx').val()).attr('checked', true);
 
-  var edit_notes = $('#edit_notes').val() == "true";
   $('.jquery-note_1-1').jQueryNotes({
     operator: '/tags',
     maxNotes: 10,
@@ -23,4 +22,17 @@ jQuery(document).ready(function() {
       }
     });
   });
+
+  jQuery('#submit_answer').click(function(){
+    var question_id = $(this).attr('question_id');
+    var option = $("input[@name=options]:checked").val();
+    $.ajax({
+      url: '/questions/' + question_id + "/correct_answer?option=" + option,
+      success: function(data){
+        $('#explanation').html(data);
+        $('#submit_answer').remove();
+      }
+    });
+  });
+
 });

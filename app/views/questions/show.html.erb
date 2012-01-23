@@ -2,17 +2,41 @@
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'question') %>
 <br />
 <h2><%= @assessment.name %></h2>
-<h3><%= @question.question %></h3>
-<div class="left">
-  <%= image_tag '/images/cyto/' + @image.id.to_s + '.' + @image.format, :class => 'jquery-note_1-1' %>
-</div>
+<h3><%= "Q#{params[:id]} #{@question.question}" %></h3>
+<% unless @image.nil? %>
+  <div class="left">
+    <%= image_tag '/images/cyto/' + @image.id.to_s + '.' + @image.format, :class => 'jquery-note_1-1' %>
+    <input type="hidden" id="image_id" value="<%= @image.id %>" />
+  </div>
+<% end %>
 <div class="left" style="margin-left: 20px;">
   <% @question.answers.each do |answer| %>
     <div>
-      <input type="radio" value="<%= answer.id %>" name="option" /><%= answer.option %>
+      <input type="radio" value="<%= answer.id %>" name="options" /><%= answer.option %>
     </div>
     <br />
   <% end %>
-  <br />
+  <div id="explanation"></div>
+  <div>
+    <% unless params[:id].to_i == 1 %>
+      <a href="<%= question_path(params[:id].to_i - 1, :assessment_id => @assessment.id) %>">
+        <div class="big_button previous_button left" style="margin-right: 10px;">Previous</div>
+      </a>
+    <% end %>
+    <a href="#" id="submit_answer" question_id="<%= @question.id %>">
+      <div class="big_button submit_button left" style="margin-right: 10px;">Submit</div>
+    </a>
+    <% if params[:id].to_i == 9 %>
+      <a href="<%= summary_assessment_path(@assessment.id) %>">
+        <div class="big_button assessment_finish_button left">Finish</div>
+      </a>    
+    <% else %>
+      <a href="<%= assessments_path %>">
+        <div class="big_button assessment_next_button left" style="margin-right: 10px;">Quit</div>
+      </a>
+      <a href="<%= question_path(params[:id].to_i + 1, :assessment_id => @assessment.id) %>">
+        <div class="big_button assessment_next_button left">Next</div>
+      </a>
+    <% end %>
+  </div>
 </div>
-<input type="hidden" id="image_id" value="<%= @image.id %>" />

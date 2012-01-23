@@ -4,7 +4,10 @@
 <div><%= @assessment.description %></div>
 <br />
 <div>
-  <a href="<%= question_path(@question_id, :assessment_id => @assessment.id) %>">
-    <div class="big_button assessment_begin_button">Begin</div>
+  <a href="<%= question_path(1, :assessment_id => @assessment.id) %>">
+    <div class="big_button assessment_begin_button left" style="margin-right: 10px;">Begin</div>
+  </a>
+  <a href="<%= assessments_path %>">
+    <div class="big_button assessment_next_button left" style="margin-right: 10px;">Quit</div>
   </a>
 </div>

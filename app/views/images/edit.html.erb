@@ -31,7 +31,8 @@
     </div>
     <div class="clear"></div>
     <br />
-    <%= f.submit 'Save', :style => 'margin-left: 246px;' %>
+    <%= link_to 'cancel', images_path, :style => 'margin-left: 200px;' %>
+    <%= f.submit 'Save' %>
   <% end %>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />

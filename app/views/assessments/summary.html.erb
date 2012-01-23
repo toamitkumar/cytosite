@@ -1,0 +1,46 @@
+<% content_for :title, @assessment.name %>
+<br />
+<h2><%= @assessment.name %></h2>
+<h3>Score</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Correct</th>
+      <th>Wrong</th>
+      <th>Percent</th>
+      <th>Pass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>7</td>
+      <td>3</td>
+      <td>70%</td>
+      <td>Pass</td>
+    </tr>
+  </tbody>
+</table>
+<h3>Summary</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Correct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assessment.questions.each_with_index do |question, indx| %>
+      <tr <%= (indx + 1)%3 != 0? '' : 'class="error"'.html_safe %>>
+        <td><%= question.question %></td>
+        <td><%= (indx + 1)%3 != 0? 'Correct' : 'Wrong' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div>
+  <a href="<%= root_url %>">
+    <div class="big_button done_button">Done</div>
+  </a>
+</div>

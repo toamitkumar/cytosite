@@ -1,7 +1,7 @@
 require 'image_science'
 class QuestionsController < ApplicationController
   layout 'common'
-  before_filter :admin_resource?, :except => [:show]
+  before_filter :admin_resource?, :except => [:show, :correct_answer]
 
   def index
     @questions = Question.all
@@ -9,9 +9,10 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id], :include => :answers)
-    @image = Image.find(@question.image_id)
     @assessment = Assessment.find(params[:assessment_id])
+    @assessment_question = AssessmentQuestion.find_by_order_and_assessment_id(params[:id], @assessment.id)
+    @question = Question.find(@assessment_question.question_id, :include => :answers)
+    @image = Image.find(@question.image_id) unless @question.image_id.blank?
     @assessment_question = AssessmentQuestion.find_by_question_id_and_assessment_id(@question.id, @assessment.id)
   end
 
@@ -52,6 +53,13 @@ class QuestionsController < ApplicationController
   def destroy
     Question.find(params[:id]).destroy
     redirect_to questions_path
+  end
+
+  def correct_answer
+    @question = Question.find(params[:id])
+    @correct_answer = Answer.find_by_question_id_and_correct(@question.id, true)
+    @is_correct = @correct_answer.id == params[:option].to_i
+    render :partial => 'correct_answer'
   end
 
 end

@@ -37,6 +37,7 @@
     <div id="questions">
       <%= render :partial => 'questions/assessment_questions' %>
     </div>
-    <%= f.submit 'Create', :style => 'margin-left: 418px;' %>
+    <%= link_to 'cancel', assessments_path, :style => 'margin-left: 390px;' %>
+    <%= f.submit 'Create' %>
   <% end %>
 </div>
