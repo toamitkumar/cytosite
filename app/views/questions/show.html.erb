@@ -26,7 +26,7 @@
     <a href="#" id="submit_answer" question_id="<%= @question.id %>">
       <div class="big_button submit_button left" style="margin-right: 10px;">Submit</div>
     </a>
-    <% if params[:id].to_i == 9 %>
+    <% if params[:id].to_i == 10 %>
       <a href="<%= summary_assessment_path(@assessment.id) %>">
         <div class="big_button assessment_finish_button left">Finish</div>
       </a>    
