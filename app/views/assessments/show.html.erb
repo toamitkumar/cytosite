@@ -4,9 +4,18 @@
 <div><%= @assessment.description %></div>
 <br />
 <div>
-  <a href="<%= question_path(1, :assessment_id => @assessment.id) %>">
-    <div class="big_button assessment_begin_button left" style="margin-right: 10px;">Begin</div>
-  </a>
+  <% if @user_assessment.nil? %>
+    <a href="<%= question_path(1, :assessment_id => @assessment.id) %>">
+      <div class="big_button assessment_begin_button left" style="margin-right: 10px;">Begin</div>
+    </a>
+  <% else %>
+    <a href="<%= reset_assessment_path(@assessment.id) %>">
+      <div class="big_button assessment_reset_button left" style="margin-right: 10px;">Reset</div>
+    </a>
+    <a href="<%= summary_assessment_path(@assessment.id) %>">
+      <div class="big_button assessment_summary_button left" style="margin-right: 10px;">Summary</div>
+    </a>
+  <% end %>
   <a href="<%= assessments_path %>">
     <div class="big_button assessment_next_button left" style="margin-right: 10px;">Quit</div>
   </a>

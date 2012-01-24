@@ -1,6 +1,6 @@
 class AssessmentsController < ApplicationController
   layout 'common'
-  before_filter :admin_resource?, :except => [:show, :index, :summary]
+  before_filter :admin_resource?, :except => [:show, :index, :summary, :reset]
 
   def index
     @assessments = Assessment.all
@@ -9,6 +9,7 @@ class AssessmentsController < ApplicationController
 
   def show
     @assessment = Assessment.find(params[:id])
+    @user_assessment = UserAssessment.find_by_user_id_and_assessment_id(current_user.id, params[:id])
     @question_id = AssessmentQuestion.find_by_assessment_id_and_order(@assessment, 1).question_id
   end
 
@@ -51,6 +52,23 @@ class AssessmentsController < ApplicationController
 
   def summary
     @assessment = Assessment.find(params[:id], :include => :questions)
+    @user_assessment = UserAssessment.find_by_user_id_and_assessment_id(current_user.id, @assessment.id)
+    @assessment_question = AssessmentQuestion.find_by_order_and_assessment_id(10, params[:id])
+    @all_assessment_questions = AssessmentQuestion.find_all_by_assessment_id(params[:id])
+    @question = Question.find(@assessment_question.question_id, :include => :answers)
+    if(params[:option].blank?)
+      UserAssessment.store_with_response(@assessment_question, current_user.id,
+        true, nil, nil)
+    else
+      @correct_answer = Answer.find_by_question_id_and_correct(@question.id, true)
+      UserAssessment.store_with_response(@assessment_question, current_user.id,
+        false, params[:option].to_i, @correct_answer.id)
+    end
+  end
+
+  def reset
+    UserAssessment.find_by_user_id_and_assessment_id(current_user.id, params[:id]).destroy
+    redirect_to assessment_path(params[:id])
   end
 
 end

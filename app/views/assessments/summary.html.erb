@@ -8,33 +8,36 @@
       <th>Total</th>
       <th>Correct</th>
       <th>Wrong</th>
+      <th>Skipped</th>
       <th>Percent</th>
       <th>Pass</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>10</td>
-      <td>7</td>
-      <td>3</td>
-      <td>70%</td>
-      <td>Pass</td>
+      <td><%= total_questions %></td>
+      <td><%= count_for('correct') %></td>
+      <td><%= count_for_wrong %></td>
+      <td><%= count_for('skipped') %></td>
+      <td><%= percent %></td>
+      <td><%= pass %></td>
     </tr>
   </tbody>
 </table>
-<h3>Summary</h3>
+<h3>Response Summary</h3>
+<p class="justify">Click on skipped questions to attempt them again.</p>
 <table>
   <thead>
     <tr>
       <th>Question</th>
-      <th>Correct</th>
+      <th>Response</th>
     </tr>
   </thead>
   <tbody>
-    <% @assessment.questions.each_with_index do |question, indx| %>
-      <tr <%= (indx + 1)%3 != 0? '' : 'class="error"'.html_safe %>>
-        <td><%= question.question %></td>
-        <td><%= (indx + 1)%3 != 0? 'Correct' : 'Wrong' %></td>
+    <% @all_assessment_questions.each do |assessment_question| %>
+      <tr>
+        <td><%= link_question_if_skipped(assessment_question) %></td>
+        <td><%= response_type(assessment_question) %></td>
       </tr>
     <% end %>
   </tbody>

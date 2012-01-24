@@ -81,6 +81,16 @@ p .justify{
   background: #4CC417;
 }
 
+.assessment_summary_button{
+  width: 75px;
+  padding: 5px;
+}
+
+.assessment_reset_button{
+  width: 45px;
+  padding: 5px;
+  background: lightcoral;
+}
 .assessment_next_button{
   width: 37px;
   padding: 5px;

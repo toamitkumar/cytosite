@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120122233155) do
+ActiveRecord::Schema.define(:version => 20120124155807) do
 
   create_table "answers", :force => true do |t|
     t.string   "option",      :limit => 512, :null => false
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(:version => 20120122233155) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.integer  "image_id"
+  end
+
+  create_table "user_assessments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "asessment_id"
+    t.string   "response",     :limit => 2000
+    t.date     "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

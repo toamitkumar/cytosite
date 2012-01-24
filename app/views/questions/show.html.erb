@@ -19,13 +19,15 @@
   <div id="explanation"></div>
   <div>
     <% unless params[:id].to_i == 1 %>
-      <a href="<%= question_path(params[:id].to_i - 1, :assessment_id => @assessment.id) %>">
+      <a href="<%= compute_previous_question_path %>">
         <div class="big_button previous_button left" style="margin-right: 10px;">Previous</div>
       </a>
     <% end %>
-    <a href="#" id="submit_answer" question_id="<%= @question.id %>">
-      <div class="big_button submit_button left" style="margin-right: 10px;">Submit</div>
-    </a>
+    <% if can_answer? %>
+      <a href="#" id="submit_answer" question_id="<%= @question.id %>" assessment_id="<%= @assessment.id %>">
+        <div class="big_button submit_button left" style="margin-right: 10px;">Submit</div>
+      </a>
+    <% end %>
     <% if params[:id].to_i == 10 %>
       <a href="<%= summary_assessment_path(@assessment.id) %>">
         <div class="big_button assessment_finish_button left">Finish</div>
@@ -34,9 +36,12 @@
       <a href="<%= assessments_path %>">
         <div class="big_button assessment_next_button left" style="margin-right: 10px;">Quit</div>
       </a>
-      <a href="<%= question_path(params[:id].to_i + 1, :assessment_id => @assessment.id) %>">
+      <a href="<%= compute_next_question_path %>">
         <div class="big_button assessment_next_button left">Next</div>
       </a>
     <% end %>
   </div>
 </div>
+<input type="hidden" id="can_answer" value="<%= can_answer? %>" />
+<input type="hidden" id="assessment_id" value="<%= @assessment.id %>" />
+<input type="hidden" id="question_id" value="<%= @question.id %>" />

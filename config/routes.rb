@@ -13,12 +13,14 @@ Cytosite::Application.routes.draw do
     member do
       get :assessment_questions
       get :correct_answer
+      get :correct_option
     end
   end
 
   resources :assessments do
     member do
       get :summary
+      get :reset
     end
   end
 
