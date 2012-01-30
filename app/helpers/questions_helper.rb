@@ -14,7 +14,7 @@ module QuestionsHelper
     start = params[:id].to_i + 1
     (start..10).each do |key|
       question_response = responses[key]
-      if question_response[:skipped]
+      if !question_response.nil? && question_response[:skipped]
         id = key
         break
       end
