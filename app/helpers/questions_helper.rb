@@ -19,8 +19,11 @@ module QuestionsHelper
         break
       end
     end
-    id = start if id.nil?
-    question_path(id, :assessment_id => @assessment.id)
+    if id.nil?
+	  summary_assessment_path(@assessment.id)
+	else
+	  question_path(id, :assessment_id => @assessment.id)
+	end
   end
 
   def complete?

@@ -9,6 +9,8 @@
       <div class="big_button assessment_begin_button left" style="margin-right: 10px;">Begin</div>
     </a>
   <% else %>
+    <br />
+	<p class="jsutify">Click on Reset button to take assessment again.</p>	
     <a href="<%= reset_assessment_path(@assessment.id) %>">
       <div class="big_button assessment_reset_button left" style="margin-right: 10px;">Reset</div>
     </a>
