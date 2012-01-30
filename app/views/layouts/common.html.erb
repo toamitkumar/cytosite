@@ -14,6 +14,7 @@
       <%= render :partial => 'common/header' %>
       <div class="clear"></div>
       <%= render :partial => 'common/navigation' %>
+	  <%= render_flash %>
       <% if current_user.admin? && params[:controller] != 'home' %>
         <%= render :partial => 'common/admin_menu' %>
       <% end %>
