@@ -2,13 +2,15 @@ development:
   adapter: mysql
   database: cytosite_dev
   username: root
-  password: root
+  password:
+  host: localhost
 
 test:
   adapter: mysql
   database: cytosite_test
   username: root
-  password: root
+  password:
+  host: localhost
 
 production:
   adapter: mysql

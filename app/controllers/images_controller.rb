@@ -25,14 +25,17 @@ class ImagesController < ApplicationController
   end
 
   def create
-    Image.transaction do
-      format = params[:upload]['datafile'].original_filename.split('.').last
-      params[:image][:format] = format
-      image = Image.create!(params[:image])
-      ImageFile.save(params[:upload], image.id, format)
-      ImageFile.save_thumbnail(image.id, format)
-    end
+    Image.create_with_s3(params)
     redirect_to images_path
+    
+    # Image.transaction do
+    #   format = params[:upload]['datafile'].original_filename.split('.').last
+    #   params[:image][:format] = format
+    #   image = Image.create!(params[:image])
+    #   ImageFile.save(params[:upload], image.id, format)
+    #   ImageFile.save_thumbnail(image.id, format)
+    # end
+    # redirect_to images_path
   end
 
   def update

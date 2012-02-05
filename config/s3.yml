@@ -1,0 +1,11 @@
+development:
+  access_key_id: 'AKIAIOO6UCD3TG7HPGEQ'
+  secret_access_key: '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'
+  bucket: 'cytosite_dev'
+  base_url: 'https://s3.amazonaws.com/cytosite_dev'
+
+production:
+  access_key_id: 'AKIAIOO6UCD3TG7HPGEQ'
+  secret_access_key: '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'
+  bucket: 'cytosite'
+  base_url: 'https://s3.amazonaws.com/cytosite'

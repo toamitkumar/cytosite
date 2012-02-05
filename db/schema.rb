@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20120124155807) do
     t.integer  "parent_id"
     t.integer  "level"
     t.integer  "sort_order"
-    t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,23 +68,20 @@ ActiveRecord::Schema.define(:version => 20120124155807) do
   end
 
   create_table "questions", :force => true do |t|
-    t.string   "question",           :limit => 512,  :null => false
-    t.string   "explanation",        :limit => 1024, :null => false
-    t.string   "category_code",      :limit => 20
+    t.string   "question",      :limit => 512,  :null => false
+    t.string   "explanation",   :limit => 1024, :null => false
+    t.string   "category_code", :limit => 20
     t.integer  "sort_order"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
     t.integer  "image_id"
   end
 
   create_table "user_assessments", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "asessment_id"
-    t.string   "response",     :limit => 2000
+    t.integer  "assessment_id"
+    t.string   "response",      :limit => 2000
     t.date     "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"

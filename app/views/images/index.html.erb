@@ -26,7 +26,8 @@
         <% end %>
           <% image_path = image_path(image.id) %>
           <% image_path = edit_image_path(image.id) if current_user.admin? %>
-          <td><a href="<%= image_path %>"><%= image_tag 'cyto/thumbnails/' + image.id.to_s + '.' + image.format %></a></td>
+          <td><a href="<%=image_path%>"><%= image_tag ImageFile.url_to_thumbnail(image.id, image.format) %></a></td>
+          <!-- <td><a href="<%= image_path %>"><%= image_tag 'cyto/thumbnails/' + image.id.to_s + '.' + image.format %></a></td> -->
         <% if ((indx + 1) % 4) == 0  %>
           </tr>
         <% end %>

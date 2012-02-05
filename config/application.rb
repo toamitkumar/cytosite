@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+require 'yaml'
+S3_CONFIG = YAML.load(File.read(File.expand_path('../s3.yml', __FILE__)))[Rails.env]
+
 module Cytosite
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
