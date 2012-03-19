@@ -1,4 +1,3 @@
-require 'image_science'
 class QuestionsController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :correct_answer, :correct_option]
@@ -31,6 +30,7 @@ class QuestionsController < ApplicationController
   def new
     @categories = Category.all(:order => 'sort_order').collect {|c| [c.name, c.code]}
     @images = Image.find_all_by_category_code('overview')
+    @codes = ['A', 'B', 'C', 'D']
   end
 
   def create    

@@ -1,9 +1,9 @@
-<% content_for :title, "Edit Question" %>
+<% content_for :title, "New Question" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'question') %>
 <br />
-<h2>Edit Question</h2>
+<h2>New Question</h2>
 <div>
-  <%= form_for @question, :url => question_path do |f| %>
+  <%= form_for Question.new, :url => questions_path do |f| %>
     <div>
       <div class="left" style="margin-right: 26px;">
         <%= f.label 'Question:' %>
@@ -41,17 +41,14 @@
     <br />
     <div class="left" style="margin-left: 500px; font-weight: bold">Correct Option</div>
     <div class="clear"></div>
-    <% @question.answers.each_with_index do |answer, i| %>
+    <% (0..3).each do |i| %>
       <div>
         <div class="left" style="margin-right: 28px;">
           <label>Option <%= @codes[i] %>:</label>
         </div>
         <div class="left">
-          <input name="option<%= i %>[option]" style="width: 398px" value="<%= answer.option %>" />
-          <input type="radio" id="option<%= i %>" value="<%= i %>" name="correct_option" style="margin-left: 50px;" />
-          <% if answer.correct %>
-            <input type="hidden" id="correct_option_indx" value="<%= i %>" />
-          <% end %>
+          <input name="option<%= i %>[option]" style="width: 398px" value="" />
+          <input type="radio" id="option<%= i %>" name="correct_option" style="margin-left: 50px;" value="<%= i %>" />
         </div>
       </div>
       <div class="clear"></div>
