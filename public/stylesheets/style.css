@@ -488,6 +488,7 @@ table.display thead th div.DataTables_sort_wrapper span {
 }
 .jquery-notes-container .notes .text span {
     color:#fff;
+    font-size: 15px;
 }
 .jquery-notes-container .notes .text .author {
     font-style:italic;

@@ -16,6 +16,13 @@ class TagsController < ApplicationController
     render :text => '[' + tags_array.join(',') + ']'
   end
 
+  def update
+    image_tag = ImageTag.where(:image_id => params[:tag].delete(:image_id)).first
+    params[:tag][:author] = current_user.name
+    image_tag.update_attributes(params[:tag])
+    render :nothing => true
+  end
+
   def create
     params[:tag][:author] = current_user.name
     ImageTag.create!(params[:tag])

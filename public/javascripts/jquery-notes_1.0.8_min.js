@@ -380,7 +380,7 @@
 
 	    html += (note.AUTHOR != '' && settings.allowAuthor) ? '<span class="author"> - '+note.AUTHOR+'</span>' : '';
 
-	    html += (note.DATE != '' && settings.dateFormat != '') ? '<span class="date">'+_formatDate(note.DATE)+'</span>' : '';
+	    // html += (note.DATE != '' && settings.dateFormat != '') ? '<span class="date">'+_formatDate(note.DATE)+'</span>' : '';
 
 	    html += '</div>';
 
@@ -615,12 +615,19 @@
 	    author = (author == undefined) ? '' : author;
 
 	    var position = _getNotePosition(pointer);
+	    var ajaxType = "POST";
+	    var url = settings.operator
+
+	    if(operation == "edit") {
+	    	var url = url + "/" + jQuery('#image_id').val();
+	    	ajaxType = "PUT";
+	    }
 
 	    $.ajax({
-		url: settings.operator,
+		url: url,
 		global: false,
 		timeout: 15000,
-		type: 'POST',
+		type: ajaxType,
 		beforeSend: function() {
 		    (id == undefined) ? _startLoading(pointer, 'saving note') : _startLoading(pointer, 'editing note');
 		},

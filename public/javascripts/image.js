@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     operator: '/tags',
     maxNotes: 25,
     allowAuthor: false,
-    allowEdit: false,
+    allowEdit: edit_notes,
     allowHide: false,
     allowAdd: edit_notes,
     allowDelete: edit_notes,
