@@ -3,7 +3,7 @@
 <br />
 <h2>Image</h2>
 <div class="left">
-  <%= image_tag ImageFile.url_to_image(params[:id], image.format), :class => 'jquery-note_1-1' %>
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
 </div>
 <div class="left" style="padding-left: 20px">
   <div class="left" style="margin-right: 52px;">Name:</div>
