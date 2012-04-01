@@ -1,25 +1,22 @@
 <% content_for :title, "Image" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
 <br />
-<h2>Image</h2>
-<div class="left">
-  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
-</div>
+<h2><%=  @image.name %></h2>
+<div class="right"><%= link_to '<<back to images', images_path %></div>
+
 <div class="left" style="padding-left: 20px">
-  <div class="left" style="margin-right: 52px;">Name:</div>
-  <div class="left"><%=  @image.name %></div>
-  <div class="clear"></div>
-  <br />
   <div class="left" style="margin-right: 36px;">Category:</div>
   <div class="left"><%= @category.name %></div>
   <div class="clear"></div>
-  <br />
   <div class="left" style="margin-right: 21px;">Description:</div>
   <div class="left"><%= @image.description %>
   </div>
   <div class="clear"></div>
   <br />
-  <%= link_to '<<back to images', images_path %>
+</div>
+
+<div class="left">
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
 <input type="hidden" id="edit_notes" value="false" />

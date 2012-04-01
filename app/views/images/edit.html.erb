@@ -2,10 +2,8 @@
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
 <br />
 <h2>Image</h2>
+
 <div class="left">
-  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
-</div>
-<div class="left" style="padding-left: 20px">
   <%= form_for @image, :url => image_path do |f| %>
     <div class="left" style="margin-right: 55px;">
       <%= f.label 'Name:' %>
@@ -27,13 +25,17 @@
       <%= f.label 'Description:' %>
     </div>
     <div class="left">
-      <%= f.text_area :description, :style => 'height: 105px; width: 200px;' %>
+      <%= f.text_area :description, :style => 'height: 40px; width: 190px;' %>
     </div>
     <div class="clear"></div>
-    <br />
     <%= link_to 'cancel', images_path, :style => 'margin-left: 200px;' %>
     <%= f.submit 'Save' %>
   <% end %>
+</div>
+
+<div class="left">
+  <br />
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
 <input type="hidden" id="edit_notes" value="true" />
