@@ -31,11 +31,12 @@
     <%= link_to 'cancel', images_path, :style => 'margin-left: 200px;' %>
     <%= f.submit 'Save' %>
   <% end %>
+  <br />
 </div>
-
+<br />
 <div class="left">
   <br />
-  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :width => "950px" %>
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :id => "image_#{params[:id]}"%>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
 <input type="hidden" id="edit_notes" value="true" />
