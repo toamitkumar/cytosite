@@ -23,12 +23,12 @@ class QuestionsController < ApplicationController
   def edit
     @codes = ['A', 'B', 'C', 'D']
     @question = Question.find(params[:id], :include => :answers)
-    @categories = Category.all(:order => 'sort_order').collect {|c| [c.name, c.code]}
+    @categories = category_format
     @images = Image.find_all_by_category_code(@question.category_code)
   end
 
   def new
-    @categories = Category.all(:order => 'sort_order').collect {|c| [c.name, c.code]}
+    @categories = category_format
     @images = Image.find_all_by_category_code('overview')
     @codes = ['A', 'B', 'C', 'D']
   end

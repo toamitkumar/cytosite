@@ -31,12 +31,12 @@ function drawRect(ctx, x, y, w, h, r) {
     ctx.quadraticCurveTo(x, y, x + r, y);
 }
 
-function initTreeView(json, canvas_height) {
+function initTreeView(json, canvas_height, element, xOffset) {
     st = new $jit.ST({
-        injectInto: 'infovis',
+        injectInto: element,
         width: 980,
         height: canvas_height,
-        offsetX: 225,
+        offsetX: xOffset,
         offsetY: 20,
         duration: 300,
         levelDistance: 50,

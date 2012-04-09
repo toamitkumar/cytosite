@@ -13,9 +13,7 @@
   <br />
 <% end %>
 <% unless @images.empty? %>
-  <div>
-    <%= select_tag "categories", options_from_collection_for_select(@categories, :code, :name) %>
-  </div>
+  <%= render :partial => 'common/category_dropdown' %>
   <div class="clear"></div>
   <br />
   <div>

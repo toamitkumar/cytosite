@@ -5,9 +5,7 @@ class ImagesController < ApplicationController
   def index
     @images = Image.all
     @images = @images.select{|cat| cat.category_code == params[:category_code]} unless params[:category_code].blank?
-    @categories = Category.find(:all,
-      :conditions => ['code in (?)', @images.map(&:category_code)],
-      :order => :name) unless @images.empty?
+    @categories = category_format
   end
 
   def show
@@ -16,12 +14,12 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = category_format
   end
 
   def edit
     @image = Image.find(params[:id])
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = category_format
   end
 
   def create

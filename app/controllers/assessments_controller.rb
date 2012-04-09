@@ -14,7 +14,7 @@ class AssessmentsController < ApplicationController
   end
 
   def new
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = category_format
     @questions = Question.find_all_by_category_code('overview')
   end
 
@@ -28,7 +28,7 @@ class AssessmentsController < ApplicationController
 
   def edit
     @assessment = Assessment.find(params[:id], :include => :assessment_questions)
-    @categories = Category.all(:order => 'sort_order').collect { |c| [c.name, c.code]}
+    @categories = category_format
     @questions = Question.find_all_by_category_code(@assessment.category_code)
     @assessment_questions = Hash[*@assessment.assessment_questions.collect { |q| [q.order, q.question_id]}.flatten]
   end
