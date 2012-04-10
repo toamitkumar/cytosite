@@ -1,16 +1,39 @@
-<h2>Change your password</h2>
+<div class="login">
+  <div class="right sign_up">
+    Not a member?&nbsp;<%= link_to "Sign up here!", new_registration_path(resource_name) %>
+  </div>
+  <div class="clear"></div>
+  <h2>Change your password</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password %></div>
+    <div class="field">
+      <div class="left label" style="width: 195px;">
+        <%= f.label :password, "New password" %>
+      </div>
+      <div class="left">
+        <%= f.password_field :password %>
+      </div>
+      <div class="clear"></div>
+    </div>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="field">
+      <div class="left label" style="width: 195px;">
+        <%= f.label :password_confirmation, "Confirm new password" %>
+      </div>
+      <div class="left">
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="clear"></div>
+    </div>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render :partial => "devise/shared/links" %>
+    <div class="right sing_in_button" style="margin-right: 40px;">
+      <%= f.submit   :type => :image, :src => "/images/change_password.png" %>
+    </div>
+  <div class="clear"></div>
+  <% end %>
+</div>
+<div class="right sign_in">
+  Already a member?&nbsp;<%= link_to "Sign in here!", new_session_path(resource_name) %>
+</div>
