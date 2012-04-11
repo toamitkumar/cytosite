@@ -359,6 +359,12 @@
 				$.each(data, function() {
 					_printNote(pointer, this);
 				});
+				var counter = _countNotes(pointer);
+			    $('#jquery-notes_'+pointer+' .controller .counter').attr('title', function() {
+				return (counter == 1) ? counter+' note' : counter+' notes';
+			    });
+			    (counter >= settings.maxNotes && settings.maxNotes != null) ? $('#jquery-notes_'+pointer+' .add-note').hide() : $('#jquery-notes_'+pointer+' .add-note').show();
+			    (settings.hideNotes) ? _hideNotes(pointer) : '';
 	    }
 
 	}
