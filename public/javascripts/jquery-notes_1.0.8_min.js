@@ -125,9 +125,9 @@
 
 	    var src = $(matchedObj).attr('src');
 
-	    $(matchedObj).attr({
-		src: src+'?timestamp='+timestamp
-	    });
+	 //    $(matchedObj).attr({
+		// src: src+'?timestamp='+timestamp
+	 //    });
 
 	    $(matchedObj).one('load', function() {
 
@@ -139,7 +139,6 @@
 		pointer++;
 
 		ID = {};
-
 		_setContainer(this, pointer);
 
 		_getProperties(pointer);
