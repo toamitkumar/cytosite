@@ -1,7 +1,7 @@
 #Creating default users
 User.destroy_all
 User.create!(:email => 'samik2803@gmail.com', :name => 'Samik Pal', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
-User.create!(:email => 'toamitkumar@gmail.com', :name => 'Amit Kumar', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
+User.create!(:email => 'toamitkumar@gmail.com', :name => 'Amit Kumar', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'user')
 User.create!(:email => 'asaqi@hotmail.com', :name => 'Anjali Saqi', :password => 'P@ssw0rd', :password_confirmation => 'P@ssw0rd', :role => 'admin')
 
 #Creating categories

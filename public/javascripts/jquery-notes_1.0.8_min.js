@@ -125,9 +125,9 @@
 
 	    var src = $(matchedObj).attr('src');
 
-	    $(matchedObj).attr({
-		src: src+'?timestamp='+timestamp
-	    });
+	 //    $(matchedObj).attr({
+		// src: src+'?timestamp='+timestamp
+	 //    });
 
 	    $(matchedObj).one('load', function() {
 
@@ -139,7 +139,6 @@
 		pointer++;
 
 		ID = {};
-
 		_setContainer(this, pointer);
 
 		_getProperties(pointer);
@@ -329,7 +328,7 @@
 		$.ajax({
 		    url: settings.operator + '/' + jQuery('#image_id').val(),
 		    global: false,
-		    timeout: 15000,
+		    timeout: 1500,
 		    dataType: 'json',
 		    beforeSend: function() {
 			(ID.firstLoad) ? _startLoading(pointer, 'loading notes') : '';
@@ -354,7 +353,17 @@
 		});
 
 	    } else {
-		_stopLoading(pointer);
+				_stopLoading(pointer);
+				data = JSON.parse($("div[rel='image-tag']").attr("data-image-tag"));
+				$.each(data, function() {
+					_printNote(pointer, this);
+				});
+				var counter = _countNotes(pointer);
+			    $('#jquery-notes_'+pointer+' .controller .counter').attr('title', function() {
+				return (counter == 1) ? counter+' note' : counter+' notes';
+			    });
+			    (counter >= settings.maxNotes && settings.maxNotes != null) ? $('#jquery-notes_'+pointer+' .add-note').hide() : $('#jquery-notes_'+pointer+' .add-note').show();
+			    (settings.hideNotes) ? _hideNotes(pointer) : '';
 	    }
 
 	}

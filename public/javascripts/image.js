@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
     allowHide: false,
     allowAdd: edit_notes,
     allowDelete: edit_notes,
-    allowLinks: false
+    allowLinks: false,
+    loadNotes: false
   });
 });

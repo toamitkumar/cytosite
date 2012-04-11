@@ -15,7 +15,7 @@
   <br />
 </div>
 
-<div class="left" style="clear:left;">
+<div class="left" style="clear:left;" data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag'>
   <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :id => "image_#{params[:id]}"%>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
