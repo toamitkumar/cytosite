@@ -329,7 +329,7 @@
 		$.ajax({
 		    url: settings.operator + '/' + jQuery('#image_id').val(),
 		    global: false,
-		    timeout: 15000,
+		    timeout: 1500,
 		    dataType: 'json',
 		    beforeSend: function() {
 			(ID.firstLoad) ? _startLoading(pointer, 'loading notes') : '';
@@ -354,7 +354,11 @@
 		});
 
 	    } else {
-		_stopLoading(pointer);
+				_stopLoading(pointer);
+				data = JSON.parse($("div[rel='image-tag']").attr("data-image-tag"));
+				$.each(data, function() {
+					_printNote(pointer, this);
+				});
 	    }
 
 	}
