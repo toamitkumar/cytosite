@@ -2,18 +2,17 @@
 <% content_for :js_include, javascript_include_tag('images') %>
 <br />
 <h2>Browse Images</h2>
-<% if current_user.admin? %>
-  <div>
+<% unless @images.empty? %>
+  <div class="left" style="margin-right: 10px; margin-left: 20px;">
+    <%= render :partial => 'common/category_dropdown' %>
+  </div>
+  <% if current_user.admin? %>
+  <div class="left">
     <a href="<%= new_image_url %>">
-      <div class="big_button">
-        <%= image_tag 'add_small.png' %> New Image
-      </div>
+      <%= image_tag 'add_image.png' %>
     </a>
   </div>
-  <br />
-<% end %>
-<% unless @images.empty? %>
-  <%= render :partial => 'common/category_dropdown' %>
+  <% end %>
   <div class="clear"></div>
   <br />
   <div>
@@ -33,5 +32,12 @@
       </table>
   </div>
 <% else %>
+  <% if current_user.admin? %>
+    <a href="<%= new_image_url %>">
+      <div class="big_button">
+        <%= image_tag 'add_small.png' %> New Image
+      </div>
+    </a>
+  <% end %>
   <div>There are no images added in the system.</div>
 <% end %>

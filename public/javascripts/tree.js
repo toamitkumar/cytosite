@@ -47,7 +47,7 @@ function initTreeView(json, canvas_height, element, xOffset) {
             height: 40,
             width: 150,
             type: 'roundrect',
-            color: '#00008B'
+            color: '#FF7F24'
         },
         Edge: {
             type: 'bezier',
@@ -67,8 +67,9 @@ function initTreeView(json, canvas_height, element, xOffset) {
             style.width = 205 + 'px';
             style.height = 20 + 'px';
             style.cursor = 'pointer';
-            style.color = '#fff';
+            style.color = '#B9ADAA';
             style.fontSize = '11px';
+            style.fontWeight = 'bold';
             style.textAlign = 'left';
             style.paddingTop = '3px';
             style.paddingLeft = '5px';
@@ -108,7 +109,7 @@ function initTreeView(json, canvas_height, element, xOffset) {
                 var h = 25;
                 var w = width;
                 drawRect(ctx, x, y, w, h, r);
-                ctx.fillStyle = ('#12A2E9');
+                ctx.fillStyle = ('#FF7F24');
                 ctx.fill();
             }
         }

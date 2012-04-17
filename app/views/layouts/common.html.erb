@@ -5,16 +5,15 @@
     <title><%= yield(:title) %></title>
     <%= stylesheet_link_tag 'screen', 'style' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'ie', :media => 'all' %><![endif]-->
-    <%= javascript_include_tag 'jquery-1.7', 'rails', 'application' %>
+    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'jquery.jqtransform', 'rails', 'application' %>
     <%= yield(:js_include) %>
     <%= csrf_meta_tag %>
   </head>
   <body class='<%=params[:controller].gsub('/','-') %> <%=params[:action] %>'>
+    <%= render :partial => 'common/header' %>
     <div class="shadow box container">
-      <%= render :partial => 'common/header' %>
       <div class="clear"></div>
-      <%= render :partial => 'common/navigation' %>
-	  <%= render_flash %>
+      <%= render_flash %>
       <% if current_user.admin? && params[:controller] != 'home' %>
         <%= render :partial => 'common/admin_menu' %>
       <% end %>

@@ -1,12 +1,29 @@
 <div id="header">
-  <div class="left">
-    <%= image_tag 'logo.JPG' %>
+  <div class="left logo">
+    <h1>Cyto Site</h1>
   </div>
-  <div class="register right">Welcome, <%= current_user.name %>!</div>
-  <br />
-  <div class="register right">
-    <%= link_to 'User Settings', user_path(current_user.id) %>&nbsp;|&nbsp;
-    <%= link_to 'Logout', destroy_user_session_path %>&nbsp;|&nbsp;
-    <a>Contact Us</a>
+  <div class="welcome right">
+    <span class="user_det">
+      <%= current_user.name %>
+      <%= link_to(image_tag('dwn_arw.png'), '#', :id => 'user_settings') %>
+    </span>
+  </div>
+  <div id="UserSettings">
+    <%= link_to "Sign out", destroy_user_session_path %>
+    <br />
+     <%= link_to "Edit Settings", edit_user_path(current_user.id) %>
+  </div>
+  <div id="menu" class="right">
+    <ul>
+      <li id ="home_link"><%= link_to 'Home', root_url %></li>
+      <li id ="overview_link"><%= link_to 'Overview', overview_url %></li>
+      <li id ="image_link"><%= link_to 'Images', images_url %></li>
+      <li id ="assessment_link"><%= link_to 'Assessments', assessments_url %></li>
+      <% if current_user.admin? %>
+        <li id ="admin_link"><%= link_to 'Admin', images_url %></li>
+      <% else %>
+        <li id ="contact_link"><a>Contact Us</a></li>
+      <% end %>
+    </ul>
   </div>
 </div>
