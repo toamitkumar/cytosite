@@ -5,7 +5,7 @@
     <title><%= yield(:title) %></title>
     <%= stylesheet_link_tag 'screen', 'style' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'ie', :media => 'all' %><![endif]-->
-    <%= javascript_include_tag 'jquery-1.7', 'jquery.jqtransform', 'rails', 'application' %>
+    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'jquery.jqtransform', 'rails', 'application' %>
     <%= yield(:js_include) %>
     <%= csrf_meta_tag %>
   </head>

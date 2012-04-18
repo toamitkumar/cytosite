@@ -3,9 +3,15 @@
     <h1>Cyto Site</h1>
   </div>
   <div class="welcome right">
-    <%= current_user.name %>
-    <%= link_to(image_tag('dwn_arw.png'),
-      '#', :id => 'user_settings') %>
+    <span class="user_det">
+      <%= current_user.name %>
+      <%= link_to(image_tag('dwn_arw.png'), '#', :id => 'user_settings') %>
+    </span>
+  </div>
+  <div id="UserSettings">
+    <%= link_to "Sign out", destroy_user_session_path %>
+    <br />
+     <%= link_to "Edit Settings", edit_user_path(current_user.id) %>
   </div>
   <div id="menu" class="right">
     <ul>

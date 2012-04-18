@@ -7,6 +7,17 @@ body {
     padding: 0;
 }
 
+.modal_container {
+  background: #fff;
+  padding: 10px 0 0 20px;
+  background: none repeat scroll 0 0 #131313;
+  border: 1px solid #000;
+}
+
+.user_det {
+  cursor: pointer;
+}
+
 /* Header and footer Styles start */
 
 #header {
