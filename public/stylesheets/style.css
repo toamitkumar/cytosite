@@ -171,22 +171,6 @@ p .justify{
   text-align: justify;
 }
 
-.big_button{
-  height: 20px;
-  width: 132px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
-  background: #F0F6F9;
-  padding: 10px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #346F97;
-  background: #F0F6F9;
-  vertical-align: middle;
-}
-
 .assessment_begin_button{
   width: 45px;
   padding: 5px;
@@ -228,9 +212,14 @@ p .justify{
   padding: 5px;
 }
 
+#browseImages {
+  padding-left: 30px;
+}
+
 #browseImages tr td{
-  width: 223px;
-  padding-left: 45px;
+  width: 220px;
+  background:#131313;
+  padding: 20px 20px;
 }
 
 /* jCarousel Styles start */
