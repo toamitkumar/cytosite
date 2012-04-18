@@ -33,6 +33,19 @@ body {
     width: 900px;
 }
 
+.welcome {
+  position: absolute;
+  width: 900px;
+  text-align: right;
+  top: 3px;
+  font-size: 10px;
+}
+
+.welcome img {
+  height: 6px;
+  width: 8px;
+}
+
 /* Header and footer Styles end */
 
 
@@ -116,6 +129,7 @@ body {
 
 #menu li {
     float: left;
+    margin-right: 2px;
 }
 
 #menu a {
@@ -123,35 +137,12 @@ body {
   padding: 5px;
 }
 
-#menu a:hover {
+#menu a:hover, #menu a.selected {
     background-color: #F83025;
     text-shadow: -1px 1px 1px #720F12;
 }
 
 /* Navigation menu syles end */
-
-#navigation_bar{
-  padding: 5px 0 3px;
-  background: #00008B;
-}
-
-#navigation_bar ul{
-  margin: 0;
-}
-
-#navigation_bar ul li{
-  display: inline;
-  list-style: none;
-  color: #fff;
-  font-size: 12px;
-}
-
-#navigation_bar ul li a{
-  text-decoration: none;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-}
 
 #admin_menu{
   padding: 5px 0 3px;
@@ -244,7 +235,8 @@ p .justify{
 
 /* jCarousel Styles start */
 .carousel{
-  padding-left: 130px;
+  width: 462px;
+  margin: 0 auto;
 }
 
 .jcarousel-skin-tango .jcarousel-container {
@@ -252,12 +244,13 @@ p .justify{
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #F0F6F9;
-  border: 1px solid #346F97;
+  border: 1px solid #FF7F24;
 }
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
-  width: 600px;
+  width: 380px;
   padding: 20px 40px;
+  background-color: #504A4B;
 }
 
 .jcarousel-skin-tango .jcarousel-clip {
@@ -265,12 +258,12 @@ p .justify{
 }
 
 .jcarousel-skin-tango .jcarousel-clip-horizontal {
-  width: 600px;
-  height: 380px;
+  width: 380px;
+  height: 284px;
 }
 
 .jcarousel-skin-tango .jcarousel-item {
-    width: 300px;
+    width: 380px;
     height: 500px;
 }
 
@@ -286,7 +279,7 @@ p .justify{
 
 .jcarousel-skin-tango .jcarousel-next-horizontal {
     position: absolute;
-    top: 175px;
+    top: 145px;
     right: 5px;
     width: 32px;
     height: 32px;
@@ -313,7 +306,7 @@ p .justify{
 
 .jcarousel-skin-tango .jcarousel-prev-horizontal {
     position: absolute;
-    top: 175px;
+    top: 145px;
     left: 5px;
     width: 32px;
     height: 32px;

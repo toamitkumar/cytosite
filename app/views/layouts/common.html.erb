@@ -10,11 +10,10 @@
     <%= csrf_meta_tag %>
   </head>
   <body class='<%=params[:controller].gsub('/','-') %> <%=params[:action] %>'>
+    <%= render :partial => 'common/header' %>
     <div class="shadow box container">
-      <%= render :partial => 'common/header' %>
       <div class="clear"></div>
-      <%= render :partial => 'common/navigation' %>
-	  <%= render_flash %>
+      <%= render_flash %>
       <% if current_user.admin? && params[:controller] != 'home' %>
         <%= render :partial => 'common/admin_menu' %>
       <% end %>
