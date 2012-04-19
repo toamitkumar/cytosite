@@ -1,10 +1,10 @@
 <% content_for :title, "Edit User" %>
-<br />
+<% content_for :js_include, javascript_include_tag('user') %>
 <h2>Edit User</h2>
 <div>
-  <%= form_for @user, :url => user_path do |f| %>
+  <%= form_for @user, :html => {:class => 'jqtransform'}, :url => user_path do |f| %>
     <div>
-      <div class="left" style="margin-right: 123px;">
+      <div class="left form_label">
         <%= f.label 'Name:' %>
       </div>
       <div class="left">
@@ -14,7 +14,7 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 126px;">
+      <div class="left form_label">
         <%= f.label 'Email:' %>
       </div>
       <div class="left">
@@ -24,27 +24,17 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 132px;">
+      <div class="left form_label">
         <%= f.label 'Role:' %>
       </div>
-      <div class="left">
+      <div class="left user_form_select">
         <%= f.select :role, [['Administrator', 'admin'], ['User', 'user']] %>
       </div>
     </div>
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 55px;">
-        <%= f.label 'Current Password:' %>
-      </div>
-      <div class="left">
-        <%= f.password_field :current_password %>
-      </div>
-    </div>
-    <div class="clear"></div>
-    <br />
-    <div>
-      <div class="left" style="margin-right: 100px;">
+      <div class="left form_label">
         <%= f.label 'Password:' %>
       </div>
       <div class="left">
@@ -54,7 +44,7 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 25px;">
+      <div class="left form_label">
         <%= f.label 'Password Confirmation:' %>
       </div>
       <div class="left">
@@ -63,7 +53,12 @@
     </div>
     <div class="clear"></div>
     <br />
-    <%= link_to 'cancel', users_path, :style => 'margin-left: 271px;' %>
-    <%= f.submit 'Save' %>
+    <div class="user_form_submit">
+      <%= link_to 'cancel', users_path %>
+      <span>
+        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      </span>
+      <div class="clear"></div>
+    </div>
   <% end %>
 </div>

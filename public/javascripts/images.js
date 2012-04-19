@@ -4,5 +4,5 @@ jQuery(document).ready(function() {
     document.location.href = document.location.href + '?category_code=' + categoryCode;
   });
 
-  jQuery('#admin_link a').addClass("selected");
+  jQuery('#image_link a').addClass("selected");
 });

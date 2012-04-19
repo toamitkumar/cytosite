@@ -18,5 +18,5 @@ jQuery(document).ready(function() {
     loadNotes: false
   });
 
-  jQuery('#admin_link a').addClass("selected");
+  jQuery('#image_link a').addClass("selected");
 });

@@ -14,6 +14,17 @@ body {
   border: 1px solid #000;
 }
 
+.form_label {
+  width: 170px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.user_form_submit{
+  width: 492px;
+  text-align: right;
+}
+
 .user_det {
   cursor: pointer;
 }
