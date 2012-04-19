@@ -1,0 +1,13 @@
+<div id="menu" class="right">
+  <ul>
+    <li id ="home_link"><%= link_to 'Home', root_url %></li>
+    <li id ="overview_link"><%= link_to 'Overview', overview_url %></li>
+    <li id ="image_link"><%= link_to 'Images', images_url %></li>
+    <li id ="assessment_link"><%= link_to 'Assessments', assessments_url %></li>
+    <% if current_user.admin? %>
+      <li id ="admin_link"><%= link_to 'Admin ', '#' %></li>
+    <% else %>
+      <li id ="contact_link"><a>Contact Us</a></li>
+    <% end %>
+  </ul>
+</div>

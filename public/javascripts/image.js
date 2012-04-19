@@ -17,4 +17,6 @@ jQuery(document).ready(function() {
     allowLinks: false,
     loadNotes: false
   });
+
+  jQuery('#admin_link a').addClass("selected");
 });

@@ -3,5 +3,5 @@ jQuery(document).ready(function() {
     document.location.href = document.location.href + '?category_code=' + $(this).val();
   });
 
-  jQuery('#image_link a').addClass("selected");
+  jQuery('#admin_link a').addClass("selected");
 });
