@@ -1,12 +1,12 @@
 <% content_for :title, "All Questions" %>
 <% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'questions') %>
-<h2>Questions</h2>
+<h2>All Questions</h2>
 <div>
-  <a href="<%= new_question_url %>">
-    <div class="big_button">
-      <%= image_tag 'add_small.png' %> New Question
-    </div>
-  </a>
+  <div>
+    <a href="<%= new_question_url %>">
+      <%= image_tag 'add_question.png' %>
+    </a>
+  </div>
 </div>
 <br />
 <div>
