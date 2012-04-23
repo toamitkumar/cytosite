@@ -1,5 +1,5 @@
 <% unless @images.empty? %>
-  <div class="left" style="margin-right: 53px;">
+  <div class="left image_form_label">
     <label>Image:</label>
   </div>
   <div class="left">
@@ -10,5 +10,8 @@
     <% end %>
   </div>
 <% else %>
-  <p class="justify">There are no images for this category in the tool yet.</p>
+  <div class="left image_form_label">
+    <label>Image:</label>
+  </div>
+ <div class="left">There are no images for this category in the tool yet.</div>
 <% end %>

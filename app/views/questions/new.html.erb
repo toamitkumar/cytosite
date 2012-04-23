@@ -1,11 +1,10 @@
 <% content_for :title, "New Question" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'question') %>
-<br />
 <h2>New Question</h2>
 <div>
-  <%= form_for Question.new, :url => questions_path do |f| %>
+  <%= form_for Question.new, :url => questions_path, :html => {:class => 'jqtransform'} do |f| %>
     <div>
-      <div class="left" style="margin-right: 26px;">
+      <div class="left image_form_label">
         <%= f.label 'Question:' %>
       </div>
       <div class="left">
@@ -15,7 +14,7 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 25px;">
+      <div class="left image_form_label">
         <%= f.label 'Category:' %>
       </div>
       <div class="left">
@@ -30,7 +29,7 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 10px;">
+      <div class="left image_form_label">
         <%= f.label 'Explanation:' %>
       </div>
       <div class="left">
@@ -38,23 +37,26 @@
       </div>
     </div>
     <div class="clear"></div>
-    <br />
-    <div class="left" style="margin-left: 500px; font-weight: bold">Correct Option</div>
+    <div class="left" style="margin-left: 550px; font-weight: bold">Correct Option</div>
     <div class="clear"></div>
     <% (0..3).each do |i| %>
       <div>
-        <div class="left" style="margin-right: 28px;">
+        <div class="left image_form_label">
           <label>Option <%= @codes[i] %>:</label>
         </div>
-        <div class="left">
+        <div class="left question_option">
           <input name="option<%= i %>[option]" style="width: 398px" value="" />
           <input type="radio" id="option<%= i %>" name="correct_option" style="margin-left: 50px;" value="<%= i %>" />
         </div>
       </div>
       <div class="clear"></div>
     <% end %>
-    <br />
-    <%= link_to 'cancel', questions_path, :style => 'margin-left: 390px;' %>
-    <%= f.submit 'Save' %>
+    <div class="question_form_submit">
+      <%= link_to 'cancel', questions_path %>
+      <span>
+        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      </span>
+      <div class="clear"></div>
+    </div>
   <% end %>
 </div>

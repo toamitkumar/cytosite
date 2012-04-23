@@ -26,6 +26,15 @@ body {
   margin-right: 10px;
 }
 
+.question_form_submit {
+  width: 520px;
+  text-align: right;
+}
+
+.question_option {
+  margin-bottom: 20px;
+}
+
 .image_form_submit{
   width: 420px;
   text-align: right;

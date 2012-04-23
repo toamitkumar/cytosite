@@ -1,6 +1,5 @@
 <% content_for :title, "All Questions" %>
 <% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'questions') %>
-<br />
 <h2>Questions</h2>
 <div>
   <a href="<%= new_question_url %>">
@@ -26,7 +25,6 @@
         <% @questions.each do |question| %>
         <tr>
           <td><%= link_to question.question, edit_question_path(question.id) %></td>
-          <td><%= @categories[question.category_code] %></td>
           <td><%= question.created_at.strftime("%Y-%m-%d") unless question.created_at.nil? %></td>
           <td><%= question.published ? 'Yes' : 'No' %></td>
           <td><%= link_to 'Delete', question_path(question.id), :method => :delete %></td>

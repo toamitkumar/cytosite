@@ -48,4 +48,8 @@ jQuery(document).ready(function() {
     });
   }
 
+  jQuery('.jqTransformSelectWrapper').width(400);
+
+  jQuery('.jqTransformRadioWrapper').css('margin-left', 70)
+
 });
