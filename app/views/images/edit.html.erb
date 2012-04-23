@@ -1,42 +1,49 @@
 <% content_for :title, "Image" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
 <br />
-<h2>Image</h2>
+<h2><%= @image.name %></h2>
 
 <div class="left">
-  <%= form_for @image, :url => image_path do |f| %>
-    <div class="left" style="margin-right: 55px;">
-      <%= f.label 'Name:' %>
-    </div>
+  <%= form_for @image, :url => image_path, :html => {:class => 'jqtransform'} do |f| %>
     <div class="left">
-      <%= f.text_field :name %>
+      <div class="left image_form_label">
+        <%= f.label 'Name:' %>
+      </div>
+      <div class="left">
+        <%= f.text_field :name %>
+      </div>
+      <div class="clear"></div>
+      <br />
+      <div class="left image_form_label">
+        <%= f.label 'Category:' %>
+      </div>
+      <div class="left">
+        <%= f.select :category_code, @categories %>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-    <br />
-    <div class="left" style="margin-right: 36px;">
-      <%= f.label 'Category:' %>
-    </div>
-    <div class="left">
-      <%= f.select :category_code, @categories %>
-    </div>
-    <div class="clear"></div>
-    <br />
-    <div class="left" style="margin-right: 21px;">
+    <div class="left image_form_label">
       <%= f.label 'Description:' %>
     </div>
     <div class="left">
-      <%= f.text_area :description, :style => 'height: 40px; width: 190px;' %>
+      <%= f.text_area :description, :style => 'height: 40px; width: 310px;' %>
     </div>
     <div class="clear"></div>
-    <%= link_to 'cancel', images_path, :style => 'margin-left: 200px;' %>
-    <%= f.submit 'Save' %>
+    <br />
+    <div class="image_edit_form_submit">
+      <%= link_to 'cancel', users_path %>
+      <span>
+        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      </span>
+      <div class="clear"></div>
+    </div>
   <% end %>
-  <br />
 </div>
 <br />
 <div class="left" style="clear:left;" data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag'>
   <br />
-  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :id => "image_#{params[:id]}"%>
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', 
+    :id => "image_#{params[:id]}", :width => '900' %>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
 <input type="hidden" id="edit_notes" value="true" />

@@ -20,6 +20,22 @@ body {
   margin-right: 10px;
 }
 
+.image_form_label {
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.image_form_submit{
+  width: 420px;
+  text-align: right;
+}
+
+.image_edit_form_submit {
+  width: 854px;
+  text-align: right;
+}
+
 .user_form_submit{
   width: 492px;
   text-align: right;
