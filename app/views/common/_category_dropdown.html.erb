@@ -1,10 +1,5 @@
-<div>
-  <form class="jqtransform" action="" id="categoriesForm">
-    <%= select_tag "categories", options_from_collection_for_select(@categories, :second, :first) %>
-  </form>
-</div>
 <!--Mega Menu Anchor-->
-<a href="#" id="megaanchor1">Browse images</a>
+<a href="#" id="megaanchor1">By Categories</a>
 
 <div id="megamenu1" class="megamenu">
   <%= render :partial => "common/sub_category", :collection => Category.children, :locals => {:level => 0} %>

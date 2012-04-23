@@ -15,20 +15,23 @@ z-index: 100;
 float: left;
 width: 180px; /*width of each menu column*/
 margin-right: 5px;
-background-color: white;
 }
 
 .megamenu .column .level0 h3{
   margin: 0;
-  background-color: #bdbdbd;
+  background-color: #efefef;
 }
 
 .megamenu .column .level0 h3 a{
 font: bold 13px Arial;
 color: #000000;
 padding: 0;
-background-color: #bdbdbd;
+background-color: #efefef;
 text-decoration: none;
+}
+
+.megamenu .column .level0 h3 a.selected {
+  color: #9797df;
 }
 
 .megamenu .column .level0 ul{
@@ -67,6 +70,10 @@ padding: 0;
 background-color: white;
 }
 
+.megamenu .column .level1 h3 a.selected {
+  color: #9797df;
+}
+
 .megamenu .column .level1 h3 a:hover{
 text-decoration: none;
 color: black;
@@ -100,6 +107,10 @@ padding: 0;
 background-color: white;
 }
 
+.megamenu .column .level2 h3 a.selected {
+ color: #9797df;
+}
+
 .megamenu .column .level2 h3 a:hover{
 text-decoration: none;
 color: black;
@@ -130,6 +141,10 @@ font: 11px Arial;
 text-decoration: none;
 padding: 0;
 background-color: white;
+}
+
+.megamenu .column .level3 h3 a.selected {
+  color: #9797df;
 }
 
 .megamenu .column .level3 h3 a:hover{

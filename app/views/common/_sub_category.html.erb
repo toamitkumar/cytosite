@@ -1,22 +1,14 @@
-<% if Category.children(sub_category).size.zero? %>
-  <div class="column">
-    <div class="level<%= level %>">
-      <h3>
-        <%= link_to sub_category.name, "#" %>
-      </h3>
-    </div>
+<div class="column">
+<div class="level<%= level %>">
+    <h3>
+      <%= link_to sub_category.name, images_url(:category_code => sub_category.code), :class => "#{@selected_category == sub_category.code ? 'selected' : ''}" %>
+    </h3>
+    <% unless Category.children(sub_category).size.zero? %>
+      <ul>
+        <li>
+          <%= render :partial => "common/sub_category", :collection => Category.children(sub_category), :locals => {:level =>  level + 1} %>
+        </li>
+      </ul>
+    <% end %>          
   </div>
- <% else %>
-   <div class="column">
-    <div class="level<%= level %>">
-        <h3>
-          <%= link_to sub_category.name, "#" %>
-        </h3>
-        <ul>
-          <li>
-            <%= render :partial => "common/sub_category", :collection => Category.children(sub_category), :locals => {:level =>  level + 1} %>
-          </li>
-        </ul>
-    </div>
-  </div>
-<% end %>
+</div>

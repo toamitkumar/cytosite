@@ -1,10 +1,11 @@
 class QuestionsController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :correct_answer, :correct_option]
+  before_filter :initialize_categories, :only => [:index, :new, :edit]
 
   def index
     @questions = Question.all
-    @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
+    # @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
   end
 
   def show
@@ -23,12 +24,12 @@ class QuestionsController < ApplicationController
   def edit
     @codes = ['A', 'B', 'C', 'D']
     @question = Question.find(params[:id], :include => :answers)
-    @categories = category_format
+    # @categories = category_format
     @images = Image.find_all_by_category_code(@question.category_code)
   end
 
   def new
-    @categories = category_format
+    # @categories = category_format
     @images = Image.find_all_by_category_code('overview')
     @codes = ['A', 'B', 'C', 'D']
   end

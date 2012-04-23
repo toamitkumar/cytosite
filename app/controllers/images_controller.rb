@@ -1,11 +1,11 @@
 class ImagesController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :index]
+  before_filter :initialize_categories, :only => [:index, :new, :edit]
 
   def index
-    @images = Image.all
-    @images = @images.select{|cat| cat.category_code == params[:category_code]} unless params[:category_code].blank?
-    @categories = category_format
+    @images = params[:category_code].blank? ? Image.all : Image.where(:category_code => params[:category_code])
+    @selected_category = params[:category_code]
   end
 
   def show
@@ -14,12 +14,10 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @categories = category_format
   end
 
   def edit
     @image = Image.find(params[:id])
-    @categories = category_format
   end
 
   def create
@@ -47,5 +45,4 @@ class ImagesController < ApplicationController
     @images = Image.find_all_by_category_code(params[:id])
     render :partial => 'category_images'
   end
-
 end
