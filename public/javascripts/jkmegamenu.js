@@ -4,7 +4,7 @@
 * Visit http://www.javascriptkit.com/script/script2/jScale/ for full source code
 */
 
-jQuery.noConflict();
+// jQuery.noConflict();
 
 var jkmegamenu={
 

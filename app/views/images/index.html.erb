@@ -1,5 +1,6 @@
 <% content_for :title, "Browse Images" %>
 <% content_for :js_include, javascript_include_tag('images') %>
+<%= render :partial => 'megamenu_files'%>
 <h2>Browse Images</h2>
 <% unless @images.empty? %>
   <div class="left" style="margin-right: 10px; margin-left: 20px;">
