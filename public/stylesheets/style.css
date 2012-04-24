@@ -31,6 +31,11 @@ body {
   text-align: right;
 }
 
+.assessment_form_submit {
+  width: 420px;
+  text-align: right;
+}
+
 .question_option {
   margin-bottom: 20px;
 }

@@ -4,7 +4,8 @@
   </div>
   <div class="left">
     <% if @question.nil? %>
-      <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name") %>
+      <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name"), 
+        :class => 'jqtransform' %>
     <% else %>
       <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name", @question.image_id) %>
     <% end %>

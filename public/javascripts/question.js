@@ -13,8 +13,8 @@ jQuery(document).ready(function() {
     allowLinks: false
   });
 
-  jQuery('#question_category_code').change(function(){
-    var cat_code = $(this).val();
+  jQuery('.jqTransformSelectWrapper li a').click(function(){
+    var cat_code = $('#question_category_code').val();
     $.ajax({
       url: '/images/' + cat_code + "/category_images",
       success: function(data){

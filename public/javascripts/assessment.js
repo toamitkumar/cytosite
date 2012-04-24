@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
-  jQuery('#assessment_category_code').change(function(){
-    var cat_code = $(this).val();
+
+  jQuery('.jqTransformSelectWrapper li a').click(function(){
+    var cat_code = $('#assessment_category_code').val();
     $.ajax({
       url: '/questions/' + cat_code + "/assessment_questions",
       success: function(data){
@@ -8,4 +9,11 @@ jQuery(document).ready(function() {
       }
     });
   });
+
+jQuery('.jqTransformSelectWrapper').width(310);
+jQuery('.jqTransformSelectWrapper ul').width(308);
+
+jQuery('#admin_link a').addClass("selected");
+
+
 });
