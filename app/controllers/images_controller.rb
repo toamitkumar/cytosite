@@ -45,4 +45,9 @@ class ImagesController < ApplicationController
     @images = Image.find_all_by_category_code(params[:id])
     render :partial => 'category_images'
   end
+
+  def destroy
+    Image.delete_with_s3(params[:id])
+    redirect_to images_url
+  end
 end

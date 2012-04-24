@@ -21,4 +21,6 @@ jQuery(document).ready(function() {
   jQuery('#image_link a').addClass("selected");
 
   jQuery('.jqTransformSelectWrapper').width(310);
+
+  
 });
