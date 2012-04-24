@@ -54,4 +54,7 @@ jQuery(document).ready(function() {
 
   jQuery('#admin_link a').addClass("selected");
 
+  var correct_option_value = $('#correct_option_indx').val();
+  jQuery('#option' + correct_option_value).prev().addClass('jqTransformChecked');
+
 });

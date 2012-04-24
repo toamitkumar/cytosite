@@ -25,6 +25,8 @@
         <% @questions.each do |question| %>
         <tr>
           <td><%= link_to question.question, edit_question_path(question.id) %></td>
+          <% categories = @category_hash.select{|cat| cat.code == question.category_code} %>
+          <td><%= categories.empty?? "" : categories.first.name %></td>
           <td><%= question.created_at.strftime("%Y-%m-%d") unless question.created_at.nil? %></td>
           <td><%= question.published ? 'Yes' : 'No' %></td>
           <td><%= link_to 'Delete', question_path(question.id), :method => :delete %></td>

@@ -4,7 +4,9 @@ class QuestionsController < ApplicationController
   before_filter :category_format, :only => [:index, :new, :edit]
 
   def index
-    @questions = Question.all
+    @questions = Question.find(:all)
+    @category_hash = Category.find_all_by_code(@questions.collect{|q| q.category_code})
+    puts @category_hash.inspect
   end
 
   def show
