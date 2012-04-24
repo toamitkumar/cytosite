@@ -7,7 +7,24 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  def initialize_categories
-    @categories = Category.find(:all, :order => :sort_order)
-  end
+
+  def category_format
+   @categories = []
+   Category.find(:all, :order => :sort_order).each do |category|
+     @categories << [format_category_name(category), category.code]
+   end
+   @categories
+ end
+
+ def format_category_name(category)
+   name = ''
+   category.level.times do
+     name += '-- '
+   end
+   name += ' ' +category.name
+ end
+
+ def initialize_categories
+   @categories = Category.find(:all, :order => :sort_order).map{|c| [c.name, c.code]}
+ end
 end
