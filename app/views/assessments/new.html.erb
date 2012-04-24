@@ -3,9 +3,9 @@
 <br />
 <h2>New Assessment</h2>
 <div>
-  <%= form_for Assessment.new, :url => assessments_path do |f| %>
+  <%= form_for Assessment.new, :url => assessments_path, :html => {:class => 'jqtransform'} do |f| %>
     <div>
-      <div class="left" style="margin-right: 53px;">
+      <div class="left image_form_label">
         <%= f.label 'Name:' %>
       </div>
       <div class="left">
@@ -15,21 +15,21 @@
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 21px;">
+      <div class="left image_form_label">
         <%= f.label 'Description:' %>
       </div>
       <div class="left">
-        <%= f.text_area :description, :style => 'height: 105px;' %>
+        <%= f.text_area :description, :style => 'height: 105px; width: 300px;' %>
       </div>
     </div>
     <div class="clear"></div>
     <br />
     <div>
-      <div class="left" style="margin-right: 36px;">
+      <div class="left image_form_label">
         <%= f.label 'Category:' %>
       </div>
       <div class="left">
-        <%= f.select :category_code, @categories %>
+        <%= f.select :category_code, @categories.collect {|c| [c[1], c[0]]} %>
       </div>
     </div>
     <div class="clear"></div>
@@ -37,7 +37,13 @@
     <div id="questions">
       <%= render :partial => 'questions/assessment_questions' %>
     </div>
-    <%= link_to 'cancel', assessments_path, :style => 'margin-left: 390px;' %>
-    <%= f.submit 'Create' %>
+    <br />
+    <div class="question_form_submit">
+      <%= link_to 'cancel', assessments_path %>
+      <span>
+        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      </span>
+      <div class="clear"></div>
+    </div>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 <% unless @questions.empty? %>
-  <div class="left" style="margin-right: 30px;">
+  <div class="left image_form_label">
     <label>Questions:</label>
   </div>
   <div class="left">
@@ -16,6 +16,9 @@
     <% end %>
   </div>
 <% else %>
-  <p class="justify">There are no questions for this category in the tool yet.</p>
+  <div class="left image_form_label">
+    <label>Questions:</label>
+  </div>
+  <div class="left">There are no questions for this category in the tool yet.</div>
 <% end %>
 <div class="clear"></div>

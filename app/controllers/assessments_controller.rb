@@ -1,7 +1,7 @@
 class AssessmentsController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :index, :summary, :reset]
-  before_filter :initialize_categories, :only => [:index, :new, :edit]
+  before_filter :category_format, :only => [:index, :new, :edit]
 
   def index
     @assessments = Assessment.all
@@ -29,7 +29,6 @@ class AssessmentsController < ApplicationController
 
   def edit
     @assessment = Assessment.find(params[:id], :include => :assessment_questions)
-    # @categories = category_format
     @questions = Question.find_all_by_category_code(@assessment.category_code)
     @assessment_questions = Hash[*@assessment.assessment_questions.collect { |q| [q.order, q.question_id]}.flatten]
   end
