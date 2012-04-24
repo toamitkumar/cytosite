@@ -32,6 +32,7 @@
     <br />
     <div class="image_edit_form_submit">
       <%= link_to 'cancel', images_path %>
+      <%= link_to 'Delete Image', image_path(@image.id), :method => :delete %>
       <span>
         <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
       </span>

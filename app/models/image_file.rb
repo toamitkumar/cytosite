@@ -50,6 +50,13 @@ class ImageFile
     AWS::S3::Base.disconnect
   end
 
+  def self.delete_from_s3(image_id, format)
+    connect_to_aws
+    AWS::S3::S3Object.delete "#{image_id}.#{format}", s3_bucket
+    AWS::S3::S3Object.delete "#{image_id}_thumbnail.#{format}", s3_bucket
+    AWS::S3::Base.disconnect
+  end
+
   def self.connect_to_aws
     AWS::S3::Base.establish_connection!(
       :access_key_id => s3_access_key,

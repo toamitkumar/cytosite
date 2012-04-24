@@ -10,4 +10,12 @@ class Image < ActiveRecord::Base
       ImageFile.save_with_thumbnail(params[:upload], image.id, format)
     end
   end
+
+  def self.delete_with_s3(id)
+  	transaction do
+  		image = Image.find(id)
+  		ImageFile.delete_from_s3(image.id, image.format)
+  		image.destroy
+  	end
+  end
 end
