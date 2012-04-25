@@ -4,15 +4,17 @@
 <div class="left">
   <h2>Browse Images</h2>
 </div>
+<% if current_user.admin? %>
+<div class="right">
+  <%= link_to image_tag('add_image.png'), new_image_url %>
+</div>
+<% end %>
+<div class="right" style="margin: 5px 10px;">
+  <%= render :partial => 'category_dropdown' %>
+</div>
+<div class="clear"></div>
+
 <% if !@images.empty? %>
-  <% if current_user.admin? %>
-  <div class="right">
-    <%= link_to image_tag('add_image.png'), new_image_url %>
-  </div>
-  <% end %>
-  <div class="right" style="margin: 5px 10px;">
-    <%= render :partial => 'category_dropdown' %>
-  </div>
   <div class="clear"></div>
     <div class="navigation-container">
     <div id="thumbs" class="navigation" style="opacity: 1;">
