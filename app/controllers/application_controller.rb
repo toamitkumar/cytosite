@@ -17,11 +17,12 @@ class ApplicationController < ActionController::Base
  end
 
  def format_category_name(category)
-   name = ''
+   name = []
    category.level.times do
-     name += '-- '
+     name << '-- '
    end
-   name += ' ' +category.name
+   name << category.name
+   name.join('')
  end
 
  def initialize_categories
