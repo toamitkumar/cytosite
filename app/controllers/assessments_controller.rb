@@ -5,7 +5,6 @@ class AssessmentsController < ApplicationController
 
   def index
     @assessments = Assessment.all
-    @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
   end
 
   def show
@@ -15,7 +14,6 @@ class AssessmentsController < ApplicationController
   end
 
   def new
-    @categories = Hash[*Category.all.collect { |c| [c.code, c.name]}.flatten]
     @questions = Question.find_all_by_category_code('overview')
   end
 
