@@ -3,9 +3,9 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title><%= yield(:title) %></title>
-    <%= stylesheet_link_tag 'screen', 'style' %>
+    <%= stylesheet_link_tag 'screen', 'style', 'jquery.galleriffic' %>
     <!--[if lt IE 8]><%= stylesheet_link_tag 'ie', :media => 'all' %><![endif]-->
-    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'jquery.jqtransform', 'rails', 'application' %>
+    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'jquery.jqtransform', 'rails', 'application', 'jquery.galleriffic', 'jquery.history', 'jquery.opacityrollover' %>
     <%= yield(:js_include) %>
     <%= csrf_meta_tag %>
   </head>

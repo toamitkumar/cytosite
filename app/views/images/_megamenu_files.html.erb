@@ -8,5 +8,13 @@
 ***********************************************/
 //jkmegamenu.definemenu("anchorid", "menuid", "mouseover|click")
 jkmegamenu.definemenu("megaanchor1", "megamenu1", "mouseover");
-
+$(document).ready(function() {
+  $("#megaanchor1").hover(
+    function() {
+    $(this).attr("style", " font-size:18px;background-color:#F83025;text-decoration: none;padding:5px;");
+  },
+  function() {
+    $(this).attr("style", " font-size:18px;");
+  });
+});
 </script>
