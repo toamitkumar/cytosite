@@ -1,5 +1,5 @@
 <!--Mega Menu Anchor-->
 <a href="#" id="megaanchor1" style=" font-size:18px;">Categories</a>
 <div id="megamenu1" class="megamenu">
-  <%= render :partial => "common/sub_category", :collection => Category.children, :locals => {:level => 0} %>
+  <%= render :partial => "sub_category", :collection => Category.children, :locals => {:level => 0} %>
 </div>
