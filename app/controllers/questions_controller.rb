@@ -51,7 +51,8 @@ class QuestionsController < ApplicationController
   end
 
   def assessment_questions
-    @questions = Question.find_all_by_category_code(params[:id])
+    category_code = params[:id].gsub('-- ', '')
+    @questions = Question.find_all_by_category_code(category_code)
     render :partial => 'assessment_questions'
   end
 
