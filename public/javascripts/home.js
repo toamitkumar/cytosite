@@ -5,7 +5,9 @@ jQuery(document).ready(function() {
     animation: 3000,
     auto: 1,
     wrap: 'circular',
-    itemFallbackDimension: 300
+    itemFallbackDimension: 300,
+    buttonNextHTML: null,
+    buttonPrevHTML: null
   });
 
   jQuery('#home_link a').addClass("selected");

@@ -67,8 +67,8 @@ function initTreeView(json, canvas_height, element, xOffset) {
             style.width = 205 + 'px';
             style.height = 20 + 'px';
             style.cursor = 'pointer';
-            style.color = '#B9ADAA';
-            style.fontSize = '11px';
+            style.color = '#FFF';
+            style.fontSize = '13px';
             style.fontWeight = 'bold';
             style.textAlign = 'left';
             style.paddingTop = '3px';
@@ -109,7 +109,7 @@ function initTreeView(json, canvas_height, element, xOffset) {
                 var h = 25;
                 var w = width;
                 drawRect(ctx, x, y, w, h, r);
-                ctx.fillStyle = ('#FF7F24');
+                ctx.fillStyle = ('#9B9');
                 ctx.fill();
             }
         }

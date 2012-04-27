@@ -81,8 +81,7 @@ body {
 
 #footer {
     font-family: Arial,Helvetica,sans-serif;
-    color: #45302C;
-    font-size: 10px;
+    font-size: 13px;
     margin: 0 auto;
     width: 900px;
 }
@@ -192,8 +191,7 @@ body {
 }
 
 #menu a:hover, #menu a.selected {
-    background-color: #F83025;
-    text-shadow: -1px 1px 1px #720F12;
+    background-color: #9B9;
 }
 
 /* Navigation menu syles end */
@@ -282,13 +280,13 @@ p .justify{
   margin: 0 auto;
 }
 
-.jcarousel-skin-tango .jcarousel-container {
+/*.jcarousel-skin-tango .jcarousel-container {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #F0F6F9;
   border: 1px solid #FF7F24;
-}
+} */
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
   width: 380px;
