@@ -1,10 +1,12 @@
 body {
-    background: url("../images/img01.jpg") repeat scroll left top #010000;
+    /* background: url("../images/img01.jpg") repeat scroll left top #010000; */
+
     color: #B9ADAA;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
     margin: 0;
     padding: 0;
+    background-color: grey;
 }
 
 .modal_container {
