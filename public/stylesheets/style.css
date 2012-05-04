@@ -6,13 +6,13 @@ body {
     font-size: 14px;
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-color: #F0F4F0;
 }
 
 .modal_container {
-  background: #fff;
+  /*background: #504A4B;*/
   padding: 10px 0 0 20px;
-  background: none repeat scroll 0 0 #131313;
+  background: none repeat scroll 0 0 #504A4B;
   border: 1px solid #000;
 }
 
@@ -64,7 +64,7 @@ body {
 /* Header and footer Styles start */
 
 #header {
-  padding:1.5em;
+  padding: 0.8em;
   margin-bottom:1.5em;
   background: none;
   width: 900px;
@@ -83,7 +83,8 @@ body {
     font-family: Arial,Helvetica,sans-serif;
     font-size: 13px;
     margin: 0 auto;
-    width: 900px;
+    width: 928px;
+    color: #504A4B;
 }
 
 .welcome {
@@ -91,7 +92,8 @@ body {
   width: 900px;
   text-align: right;
   top: 3px;
-  font-size: 10px;
+  font-size: 12px;
+  color: #504A4B;
 }
 
 .welcome img {
@@ -188,10 +190,12 @@ body {
 #menu a {
   text-decoration: none;
   padding: 5px;
+  color: #504A4B;
 }
 
 #menu a:hover, #menu a.selected {
-    background-color: #9B9;
+    background-color: #55B4F4;
+    color: white;
 }
 
 /* Navigation menu syles end */

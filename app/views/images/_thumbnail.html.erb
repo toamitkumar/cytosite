@@ -1,5 +1,5 @@
 <li class="selected" style="opacity: 1;">
-    <a class="thumb" name="optionalCustomIdentifier" href="<%= ImageFile.url_to_image(thumbnail.id, thumbnail.format) %>" rel="history" title="your image title">
+    <a data-link="<%= data_link_for_image_tagging(thumbnail.id) %>" class="thumb" name="optionalCustomIdentifier" href="<%= ImageFile.url_to_image(thumbnail.id, thumbnail.format) %>" rel="history" title="your image title">
         <%= image_tag(ImageFile.url_to_thumbnail(thumbnail.id, thumbnail.format), :height => "75px", :width => "75px", :alt => "#{thumbnail.category_code} image") %>
     </a>
 </li>

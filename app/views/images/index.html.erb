@@ -28,13 +28,16 @@
   <div class="clear"></div>
   <div class="content">
     <div class="slideshow-container">
-      <div id="controls" class="controls"></div>
+      <!-- <div id="controls" class="controls"></div> -->
       <div id="loading" class="loader"></div>
       <div id="slideshow" class="slideshow"></div>
     </div>
     <div id="caption" class="caption-container">
-      <div>More description to come</div>
-      <div class="photo-index"></div>
+      <% if(current_user.admin?) %>
+        <div><a id="tagImage" href="#">Add Tags</a></div>
+        <!-- <div>More description to come</div> -->
+        <!-- <div class="photo-index"></div> -->
+      <% end %>
     </div>
   </div>
 <% else %>
