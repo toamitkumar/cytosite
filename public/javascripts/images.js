@@ -2,10 +2,13 @@ jQuery(document).ready(function() {
 
 	$("a.thumb").click(function() {
 		var that = $(this);
-		console.log(this)
 		if(that.attr("data-link") != "") {
 			$("#tagImage").attr("href", that.attr("data-link"));
 		}
+	});
+
+	$("div.slideshow-container").click(function() {
+		$(this).find("")
 	});
 
   jQuery('div.jqTransformSelectWrapper ul li a').click(function(){
@@ -59,9 +62,16 @@ jQuery(document).ready(function() {
         // Update the photo index display
         this.$captionContainer.find('div.photo-index')
           .html('Photo '+ (nextIndex+1) +' of '+ this.data.length);
+
       },
       onPageTransitionOut:       function(callback) {
         this.fadeTo('fast', 0.0, callback);
+
+        image_edit_link = this.find("ul.thumbs > li.selected a").attr("data-link");
+        console.log(image_edit_link)
+        if(image_edit_link != "") {
+        	$("#tagImage").attr("href", image_edit_link);
+        }
       },
       onPageTransitionIn:        function() {
         var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
