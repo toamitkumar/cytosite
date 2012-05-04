@@ -109,7 +109,7 @@ function initTreeView(json, canvas_height, element, xOffset) {
                 var h = 25;
                 var w = width;
                 drawRect(ctx, x, y, w, h, r);
-                ctx.fillStyle = ('#9B9');
+                ctx.fillStyle = ('#55B4F4');
                 ctx.fill();
             }
         }

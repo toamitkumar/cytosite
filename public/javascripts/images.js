@@ -7,10 +7,6 @@ jQuery(document).ready(function() {
 		}
 	});
 
-	$("div.slideshow-container").click(function() {
-		$(this).find("")
-	});
-
   jQuery('div.jqTransformSelectWrapper ul li a').click(function(){
     var categoryCode = jQuery('#categories').val();
     document.location.href = document.location.href + '?category_code=' + categoryCode;
