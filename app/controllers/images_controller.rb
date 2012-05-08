@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
   before_filter :initialize_categories, :only => [:index, :new, :edit]
 
   def index
-    @images = params[:category_code].blank? ? Image.all(:include => :category) : Image.where(:category_code => params[:category_code]).includes(:category)
+    @images = params[:category_code].blank? ? Image.includes(:category) : Image.where(:category_code => params[:category_code]).includes(:category)
     @selected_category = params[:category_code]
   end
 
