@@ -30,13 +30,13 @@
     <div id="caption_image" class="caption-container">
       <div>
         <div>
-          Name: <span class="image-title"><%=@images.first.name%></span>
+          Name: <span class="image-title" id="image-name"><%=@images.first.name%></span>
         </div>
         <div>
-          Description: <span class="image-title"><%=@images.first.description%></span>
+          Description: <span class="image-title" id="image-descr"><%=@images.first.description%></span>
         </div>
         <!-- <div>
-          Category: <span class="image-title"><%#=@images.first.category.name%></span>
+          Category: <span class="image-title" id="image-cat"><%#=@images.first.category.name%></span>
         </div> -->
       </div>
       <% if(current_user.admin?) %>

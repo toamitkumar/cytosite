@@ -14,6 +14,11 @@ jQuery(document).ready(function() {
 
 	$("a.thumb").click(function() {
 		var that = $(this);
+    // data = JSON.parse(that.attr("data-caption"));
+    // console.log(data.name)
+    // $("#image-name").html(data.name);
+    // $("#image-descr").html(data.descr);
+    add_caption(that);
 		if(that.attr("data-link") != "") {
 			$("#tagImage").attr("href", that.attr("data-link"));
 		}
@@ -58,7 +63,7 @@ jQuery(document).ready(function() {
       nextLinkText:              'Next Photo &rsaquo;',
       nextPageLinkText:          'Next &rsaquo;',
       prevPageLinkText:          '&lsaquo; Prev',
-      enableHistory:             true,
+      enableHistory:             false,
       autoStart:                 false,
       syncTransitions:           true,
       defaultTransitionDuration: 500,
@@ -79,7 +84,6 @@ jQuery(document).ready(function() {
         if(image_edit_link != "") {
         	$("#tagImage").attr("href", image_edit_link);
         }
-        add_caption(this.find("ul.thumbs > li.selected a").attr("data-caption"))
       },
       onPageTransitionIn:        function() {
         var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
@@ -113,7 +117,7 @@ jQuery(document).ready(function() {
 });
 
 function add_caption(data_caption_link) {
-  data = JSON.parse(data_caption_link);
-  console.log(data.name)
-  console.log(data.descr)
+  data = JSON.parse(data_caption_link.attr("data-caption"));
+  $("#image-name").html(data.name);
+  $("#image-descr").html(data.descr);
 }
