@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-	# set_primary_key "code"
+	set_primary_key "code"
 
 	has_many :questions
 	has_many :images
