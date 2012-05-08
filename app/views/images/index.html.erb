@@ -1,5 +1,5 @@
 <% content_for :title, "Browse Images" %>
-<% content_for :js_include, javascript_include_tag('images') %>
+<% content_for :js_include, javascript_include_tag('images', 'jquery-notes_1.0.8_min') %>
 <%= render :partial => 'megamenu_files'%>
 <div class="left">
   <h2>Browse Images</h2>
@@ -27,17 +27,27 @@
   </div>
   <div class="clear"></div>
   <div class="content">
-    <div class="slideshow-container">
-      <!-- <div id="controls" class="controls"></div> -->
-      <div id="loading" class="loader"></div>
-      <div id="slideshow" class="slideshow"></div>
-    </div>
-    <div id="caption" class="caption-container">
+    <div id="caption_image" class="caption-container">
+      <div>
+        <div>
+          Name: <span class="image-title"><%=@images.first.name%></span>
+        </div>
+        <div>
+          Description: <span class="image-title"><%=@images.first.description%></span>
+        </div>
+        <div>
+          Category: <span class="image-title"><%=@images.first.category.name%></span>
+        </div>
+      </div>
       <% if(current_user.admin?) %>
-        <div><a id="tagImage" href="#">Add Tags</a></div>
+        <div><a id="tagImage" href="#">Add Tags >></a></div>
         <!-- <div>More description to come</div> -->
         <!-- <div class="photo-index"></div> -->
       <% end %>
+    </div>
+    <div class="slideshow-container">
+      <div id="loading" class="loader"></div>
+      <div id="slideshow" class="slideshow"></div>
     </div>
   </div>
 <% else %>

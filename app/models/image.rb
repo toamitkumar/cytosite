@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   has_many :image_tags
+  belongs_to :category, :foreign_key => :category_code, :class_name => "Category"
 
   def self.create_with_s3(params)
     transaction do

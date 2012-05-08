@@ -43,7 +43,7 @@ div.nav-controls {
 div.slideshow-container,
 div.loader,
 div.slideshow a.advance-link {
-  width: 510px; /* This should be set to be at least the width of the largest image in the slideshow with padding */
+  width: 900px; /* This should be set to be at least the width of the largest image in the slideshow with padding */
 }
 
 div.loader,
@@ -56,7 +56,7 @@ div.slideshow-container {
   position: relative;
   clear: both;
   float: left;
-  height: 532px;
+  height: 600px;
 }
 
 div.loader {
@@ -75,7 +75,7 @@ div.slideshow span.image-wrapper {
 }
 div.slideshow a.advance-link {
   display: block;
-  line-height: 502px; /* This should be set to be at least the height of the largest image in the slideshow with padding */
+  /*line-height: 502px; /* This should be set to be at least the height of the largest image in the slideshow with padding */*/
   text-align: center;
 }
 
@@ -91,12 +91,13 @@ div.slideshow a.advance-link:focus {
 div.slideshow img {
   border-style: solid;
   border-width: 1px;
-  width: 480px;
+  width: 900px;
+  height: 500px;
 }
 div.caption-container {
-  float: right;
+  /*float: right;*/
   position: relative;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 span.image-caption {
   display: block;
@@ -106,16 +107,18 @@ span.image-caption {
 }
 
 div.caption-container, span.image-caption {
-  width: 334px;
+  /*width: 334px;*/
+  height: 80px;
 }
 
 div.caption {
   padding: 0 12px;
 }
 
-div.image-title {
-  font-weight: bold;
-  font-size: 1.4em;
+span.image-title {
+  color: white;
+  /*font-weight: bold;
+  font-size: 1.4em;*/
 }
 div.image-desc {
   line-height: 1.3em;

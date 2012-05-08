@@ -1,5 +1,17 @@
 jQuery(document).ready(function() {
 
+  $('.jquery-note_1-1').jQueryNotes({
+    operator: '/tags',
+    maxNotes: 25,
+    allowAuthor: false,
+    allowEdit: true,
+    allowHide: false,
+    allowAdd: true,
+    allowDelete: true,
+    allowLinks: false,
+    loadNotes: false
+  });
+
 	$("a.thumb").click(function() {
 		var that = $(this);
 		if(that.attr("data-link") != "") {
@@ -64,10 +76,10 @@ jQuery(document).ready(function() {
         this.fadeTo('fast', 0.0, callback);
 
         image_edit_link = this.find("ul.thumbs > li.selected a").attr("data-link");
-        console.log(image_edit_link)
         if(image_edit_link != "") {
         	$("#tagImage").attr("href", image_edit_link);
         }
+        add_caption(this.find("ul.thumbs > li.selected a").attr("data-caption"))
       },
       onPageTransitionIn:        function() {
         var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
@@ -99,3 +111,9 @@ jQuery(document).ready(function() {
     /******************Galleriffic end*****************************************************/
   } catch(e) {}  
 });
+
+function add_caption(data_caption_link) {
+  data = JSON.parse(data_caption_link);
+  console.log(data.name)
+  console.log(data.descr)
+}
