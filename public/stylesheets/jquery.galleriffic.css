@@ -136,12 +136,12 @@ div.photo-index {
 div.navigation-container {
   float: left;
   position: relative;
-  left: 50%;
+  /*left: 50%;*/
 }
 div.navigation {
   float: left;
   position: relative;
-  left: -50%;
+  /*left: -50%;*/
 }
 div.navigation a.pageLink {
   display: block;
