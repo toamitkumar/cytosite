@@ -5,7 +5,7 @@ class ImagesController < ApplicationController
 
   def index
     @images = if(params[:category_code].blank?) 
-          Image.all_with_category
+          Image.includes(:category)
         else
           Image.where(:category_code => params[:category_code])
         end
