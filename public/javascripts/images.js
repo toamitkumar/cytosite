@@ -47,8 +47,8 @@ jQuery(document).ready(function() {
     });
     var gallery = $('#thumbs').galleriffic({
       delay:                     2500,
-      numThumbs:                 10,
-      preloadAhead:              10,
+      numThumbs:                 9,
+      preloadAhead:              9,
       enableTopPager:            false,
       enableBottomPager:         false,
       imageContainerSel:         '#slideshow',
