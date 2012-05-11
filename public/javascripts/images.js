@@ -14,10 +14,6 @@ jQuery(document).ready(function() {
 
 	$("a.thumb").click(function() {
 		var that = $(this);
-    // data = JSON.parse(that.attr("data-caption"));
-    // console.log(data.name)
-    // $("#image-name").html(data.name);
-    // $("#image-descr").html(data.descr);
     add_caption(that);
 		if(that.attr("data-link") != "") {
 			$("#tagImage").attr("href", that.attr("data-link"));
@@ -120,4 +116,5 @@ function add_caption(data_caption_link) {
   data = JSON.parse(data_caption_link.attr("data-caption"));
   $("#image-name").html(data.name);
   $("#image-descr").html(data.descr);
+  $("#image-cat").html(data.category);
 }

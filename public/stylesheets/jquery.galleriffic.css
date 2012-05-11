@@ -70,7 +70,7 @@ div.loader {
 div.slideshow span.image-wrapper {
   display: block;
   position: absolute;
-  top: 30px;
+  top: 15px;
   left: 0;
 }
 div.slideshow a.advance-link {
