@@ -1,23 +1,10 @@
 jQuery(document).ready(function() {
 
-  $('.jquery-note_1-1').jQueryNotes({
-    operator: '/tags',
-    maxNotes: 25,
-    allowAuthor: false,
-    allowEdit: true,
-    allowHide: false,
-    allowAdd: true,
-    allowDelete: true,
-    allowLinks: false,
-    loadNotes: false
-  });
-
 	$("a.thumb").click(function() {
 		var that = $(this);
-    add_caption(that);
-		if(that.attr("data-link") != "") {
-			$("#tagImage").attr("href", that.attr("data-link"));
-		}
+    addCaption(that);
+    addAdminEditLink(that.attr("data-link"));
+    updateImageId(that);
 	});
 
   jQuery('div.jqTransformSelectWrapper ul li a').click(function(){
@@ -76,10 +63,7 @@ jQuery(document).ready(function() {
       onPageTransitionOut:       function(callback) {
         this.fadeTo('fast', 0.0, callback);
 
-        image_edit_link = this.find("ul.thumbs > li.selected a").attr("data-link");
-        if(image_edit_link != "") {
-        	$("#tagImage").attr("href", image_edit_link);
-        }
+        addAdminEditLink(this.find("ul.thumbs > li.selected a").attr("data-link"));
       },
       onPageTransitionIn:        function() {
         var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
@@ -94,6 +78,21 @@ jQuery(document).ready(function() {
           nextPageLink.css('visibility', 'visible');
 
         this.fadeTo('fast', 1.0);
+      },
+      onTransitionIn: function(newSlide, newCaption, isSync) {
+        var editAllowed = $('#editAllowed').val() == "true"; 
+        $("a.advance-link img").jQueryNotes({
+          operator: '/tags',
+          maxNotes: 25,
+          allowAuthor: false,
+          allowEdit: editAllowed,
+          allowHide: false,
+          allowAdd: editAllowed,
+          allowDelete: editAllowed,
+          allowLinks: false,
+          loadNotes: true
+        });
+        newSlide.fadeTo(this.getDefaultTransitionDuration(isSync), 1.0);
       }
     });
 
@@ -109,12 +108,24 @@ jQuery(document).ready(function() {
       e.preventDefault();
     });
     /******************Galleriffic end*****************************************************/
-  } catch(e) {}  
+  } catch(e) {}    
 });
 
-function add_caption(data_caption_link) {
-  data = JSON.parse(data_caption_link.attr("data-caption"));
+function addCaption(dataCaptionLink) {
+  var data = JSON.parse(dataCaptionLink.attr("data-caption"));
   $("#image-name").html(data.name);
   $("#image-descr").html(data.descr);
   $("#image-cat").html(data.category);
+}
+
+function addAdminEditLink(imageEditLink) {
+  if(imageEditLink != "") {
+    $("#tagImage").attr("href", imageEditLink);
+  }
+}
+
+function updateImageId(dataCaptionLink) {
+  var data = JSON.parse(dataCaptionLink.attr("data-caption"));
+
+  $("#image_id").val(data.id);
 }

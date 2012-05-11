@@ -609,7 +609,6 @@
 					// set alt and src
 					image.alt = imageData.title;
 					image.src = imageData.slideUrl;
-					image.class = "jquery-note_1-1";
 				}
 
 				// This causes the preloader (if still running) to relocate out from the currentIndex

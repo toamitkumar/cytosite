@@ -53,3 +53,5 @@
 <% else %>
   <div>There are no images added in the system.</div>
 <% end %>
+<input type="hidden" id="image_id" value="<%= @images.first.id %>" />
+<input type="hidden" id="editAllowed" value="<%=current_user.admin? %>" />

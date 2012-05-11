@@ -129,9 +129,9 @@
 		// src: src+'?timestamp='+timestamp
 	 //    });
 
-	    $(matchedObj).one('load', function() {
+	    // $(matchedObj).one('load', function() {
 
-		$(this).attr({
+		$(matchedObj).attr({
 		    src: src
 		});
 
@@ -139,7 +139,7 @@
 		pointer++;
 
 		ID = {};
-		_setContainer(this, pointer);
+		_setContainer(matchedObj, pointer);
 
 		_getProperties(pointer);
 
@@ -149,7 +149,7 @@
 
 		_getNotes(pointer);
 
-	    });
+	    // });
 
 	}
 
