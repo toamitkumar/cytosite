@@ -1,22 +1,21 @@
 <% content_for :title, "Browse Images" %>
-<% content_for :js_include, javascript_include_tag('images', 'jquery-notes_1.0.8_min') %>
-<%= render :partial => 'megamenu_files'%>
-<div class="left">
+<% content_for :js_include, javascript_include_tag('images', 'jkmegamenu', 'jquery-notes_1.0.8_min') %>
+<% content_for :css_include, stylesheet_link_tag('jkmegamenu', 'jquery.galleriffic', 'jquery.notes') %>
+<div>
   <h2>Browse Images</h2>
 </div>
-<% if current_user.admin? %>
-<div class="right">
-  <%= link_to image_tag('add_image.png'), new_image_url %>
-</div>
-<% end %>
-<div class="right" style="margin: 5px 10px;">
+<div class="pull-left">
   <%= render :partial => 'category_dropdown' %>
 </div>
-<div class="clear"></div>
+<% if current_user.admin? %>
+  <div class="pull-left">
+    <%= link_to 'Add Image', new_image_url, :class => 'btn' %>
+  </div>
+<% end %>
+<div class="clearfix"></div>
 
 <% if !@images.empty? %>
-  <div class="clear"></div>
-    <div class="navigation-container">
+    <div class="navigation-container top">
     <div id="thumbs" class="navigation" style="opacity: 1;">
         <a class="pageLink prev" title="Previous Page" href="#" style="visibility: hidden; opacity: 0.67;"></a>
         <ul class="thumbs">
@@ -25,7 +24,7 @@
         <a class="pageLink next" title="Next Page" href="#" style="visibility: visible; opacity: 0.67;"></a>
     </div>
   </div>
-  <div class="clear"></div>
+  <div class="clearfix"></div>
   <div class="content">
     <div id="caption_image" class="caption-container">
       <div>
@@ -40,9 +39,7 @@
         </div>
       </div>
       <% if(current_user.admin?) %>
-        <div><a id="tagImage" href="#">Add Tags >></a></div>
-        <!-- <div>More description to come</div> -->
-        <!-- <div class="photo-index"></div> -->
+        <div><a id="tagImage" href="#">Edit Image >></a></div>
       <% end %>
     </div>
     <div class="slideshow-container">
@@ -50,8 +47,8 @@
       <div id="slideshow" class="slideshow"></div>
     </div>
   </div>
+  <input type="hidden" id="image_id" value="<%= @images.first.id %>" />
 <% else %>
   <div>There are no images added in the system.</div>
 <% end %>
-<input type="hidden" id="image_id" value="<%= @images.first.id %>" />
 <input type="hidden" id="editAllowed" value="<%=current_user.admin? %>" />

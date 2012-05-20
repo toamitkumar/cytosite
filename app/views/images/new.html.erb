@@ -2,54 +2,54 @@
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
 <br />
 <h2>New Image</h2>
-<div>
-  <%= form_for Image.new, :url => images_path, :html => {:multipart => true, :class => 'jqtransform'} do |f| %>
+<div class="top">
+  <%= form_for Image.new, :url => images_path, :html => {:multipart => true} do |f| %>
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Name:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.text_field :name %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Category:' %>
       </div>
-      <div class="left">
-        <%= f.select :category_code, @categories, :style => 'height: 105px; width: 300px;' %>
+      <div class="pull-left">
+        <%= f.select :category_code, @categories %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
-        <%= f.label 'description:' %>
+      <div class="pull-left span2">
+        <%= f.label 'Description:' %>
       </div>
-      <div class="left">
-        <%= f.text_area :description, :style => 'height: 105px; width: 300px;' %>
+      <div class="pull-left">
+        <%= f.text_area :description %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <label>Upload Image:</label>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= file_field 'upload', 'datafile' %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
-    <div class="image_form_submit">
+    <div class="span5" style="text-align: right;">
       <%= link_to 'cancel', images_path %>
-      <span>
-        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      <span style="margin-right: 20px;">
+        <%= f.submit "Create Image", :class => 'btn' %>
       </span>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     </div>
   <% end %>
 </div>

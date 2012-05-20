@@ -11,6 +11,10 @@ h2 {
   color: skyblue;
 }
 
+textarea {
+  height: 3em;
+}
+
 .side_padded {
   padding: 0 20px;
 }
@@ -33,6 +37,15 @@ a, a:hover {
     color: #FFFFFF;
     text-decoration: none;
 }
+
+/* home page styles start */
+
+.carousel {
+  width: 376px;
+  margin: auto;
+}
+
+/* home page styles end */
 
 /* login page styles start */
 
@@ -92,6 +105,7 @@ a, a:hover {
 
 #menu ul li {
   float: right;
+  margin-left: 2px;
 }
 
 #menu a {

@@ -1,13 +1,15 @@
 <% content_for :title, "CytoSite" %>
-<% content_for :js_include, javascript_include_tag('jquery.jcarousel.min', 'home') %>
+<% content_for :js_include, javascript_include_tag('bootstrap-carousel', 'home') %>
 <h2>Home</h2>
 <p class="justify">Welcome to Cytosite! Our mission is to provide an interactive platform to enhance cytology learning for a range of audiences. We are introducing basics through image recognition.</p>
 <p class="justify">As this is a work in progress, please be patient.... Questions, both multiple choice and case-based, with explanations are forthcoming.</p>
-<div class="carousel">
-  <ul id="mycarousel" class="jcarousel-skin-tango">
-    <li><img src="/images/cyto/random/first.png" alt="first" /></li>
-    <li><img src="/images/cyto/random/second.PNG" alt="second" /></li>
-    <li><img src="/images/cyto/random/third.PNG" alt="third" /></li>
-  </ul>
-</div>
 <br />
+<div  id="mycarousel" class="carousel">
+  <div class="carousel-inner">
+    <div class="active item"><img src="/images/cyto/random/first.png" /></div>
+    <div class="item"><img src="/images/cyto/random/second.PNG" /></div>
+    <div class="item"><img src="/images/cyto/random/third.PNG" /></div>
+  </div>
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a> 
+</div>

@@ -1,22 +1,21 @@
 <% content_for :title, "Image" %>
 <% content_for :js_include, javascript_include_tag('jquery-notes_1.0.8_min', 'image') %>
-<br />
-<h2><%=  @image.name %></h2>
-<div class="right"><%= link_to '<<back to images', images_path %></div>
+<% content_for :css_include, stylesheet_link_tag('jquery.notes') %>
+<div><h2><%=  @image.name %></h2></div>
+<div><%= link_to '<<back to images', images_path %></div>
 
-<div class="left" style="padding-left: 20px">
-  <div class="left" style="margin-right: 36px;">Category:</div>
-  <div class="left"><%= @category.name %></div>
-  <div class="clear"></div>
-  <div class="left" style="margin-right: 21px;">Description:</div>
-  <div class="left"><%= @image.description %>
+<div class="top">
+  <div class="pull-left" style="margin-right: 36px;">Category:</div>
+  <div class="pull-left"><%= @category.name %></div>
+  <div class="clearfix"></div>
+  <div class="pull-left" style="margin-right: 21px;">Description:</div>
+  <div class="pull-left"><%= @image.description %>
   </div>
-  <div class="clear"></div>
-  <br />
+  <div class="clearfix"></div>
 </div>
 
-<div class="left" style="clear:left;" data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag'>
-  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', :id => "image_#{params[:id]}"%>
+<div data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag' class="top">
+  <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :width => '900px', :class => 'jquery-note_1-1', :id => "image_#{params[:id]}"%>
 </div>
 <input type="hidden" id="image_id" value="<%= params[:id] %>" />
 <input type="hidden" id="edit_notes" value="false" />

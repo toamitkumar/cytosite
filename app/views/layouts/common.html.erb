@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag 'bootstrap.min', 'style' %>
     <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'rails', 'application', 'jquery.galleriffic', 'jquery.history', 'jquery.opacityrollover' %>
     <%= yield(:js_include) %>
+    <%= yield(:css_include) %>
     <%= csrf_meta_tag %>
   </head>
   <body class='<%=params[:controller].gsub('/','-') %> <%=params[:action] %>'>

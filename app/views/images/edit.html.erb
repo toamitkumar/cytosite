@@ -1,47 +1,48 @@
 <% content_for :title, "Image" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'image') %>
+<% content_for :css_include, stylesheet_link_tag('jquery.notes') %>
 <br />
 <h2><%= @image.name %></h2>
 
-<div class="left">
-  <%= form_for @image, :url => image_path, :html => {:class => 'jqtransform'} do |f| %>
-    <div class="left">
-      <div class="left image_form_label">
+<div class="pull-left">
+  <%= form_for @image, :url => image_path do |f| %>
+    <div>
+      <div class="pull-left span2">
         <%= f.label 'Name:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.text_field :name %>
       </div>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
       <br />
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Category:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.select :category_code, @categories %>
       </div>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     </div>
-    <div class="left image_form_label">
+    <div class="pull-left span2">
       <%= f.label 'Description:' %>
     </div>
-    <div class="left">
-      <%= f.text_area :description, :style => 'height: 40px; width: 310px;' %>
+    <div class="pull-left">
+      <%= f.text_area :description %>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
-    <div class="image_edit_form_submit">
+    <div class="span5" style="text-align: right;">
       <%= link_to 'cancel', images_path %>
-      <%= link_to 'Delete Image', image_path(@image.id), :method => :delete %>
-      <span>
-        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+      <%= link_to 'Delete Image', image_path(@image.id), :class => 'btn', :method => :delete %>
+      <span style="margin-right: 20px;">
+        <%= f.submit 'Save Image', :class => 'btn' %>
       </span>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     </div>
   <% end %>
 </div>
-<br />
-<div class="left" style="clear:left;" data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag'>
+<div class="clearfix"></div>
+<div data-image-tag="<%=image_tag_json(params[:id])%>" rel='image-tag'>
   <br />
   <%= image_tag ImageFile.url_to_image(params[:id], @image.format), :class => 'jquery-note_1-1', 
     :id => "image_#{params[:id]}", :width => '900' %>

@@ -7,10 +7,7 @@ jQuery(document).ready(function() {
     updateImageId(that);
 	});
 
-  jQuery('div.jqTransformSelectWrapper ul li a').click(function(){
-    var categoryCode = jQuery('#categories').val();
-    document.location.href = document.location.href + '?category_code=' + categoryCode;
-  });
+  jkmegamenu.definemenu("megaanchor1", "megamenu1", "click");
 
   jQuery('#image_link a').addClass("selected");
 
