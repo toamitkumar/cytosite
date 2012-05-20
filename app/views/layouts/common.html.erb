@@ -3,19 +3,24 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title><%= yield(:title) %></title>
-    <%= stylesheet_link_tag 'screen', 'style', 'jquery.galleriffic' %>
-    <!--[if lt IE 8]><%= stylesheet_link_tag 'ie', :media => 'all' %><![endif]-->
-    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'jquery.jqtransform', 'rails', 'application', 'jquery.galleriffic', 'jquery.history', 'jquery.opacityrollover' %>
+    <%= stylesheet_link_tag 'bootstrap.min', 'style' %>
+    <%= javascript_include_tag 'jquery-1.7', 'jquery-ui-1.8.16.min', 'rails', 'application', 'jquery.galleriffic', 'jquery.history', 'jquery.opacityrollover' %>
     <%= yield(:js_include) %>
     <%= csrf_meta_tag %>
   </head>
   <body class='<%=params[:controller].gsub('/','-') %> <%=params[:action] %>'>
-    <%= render :partial => 'common/header' %>
-    <div class="shadow box container">
-      <div class="clear"></div>
-      <%= render_flash %>
-      <%= yield %>
+    <div class="container">
+      <%= render :partial => 'common/header' %>
+      <div class="box">
+        <div class="clearfix"></div>
+        <div class="container">
+          <div class="side_padded">
+            <%= render_flash %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+      <%= render :partial => 'common/footer' %>
     </div>
-    <%= render :partial => 'common/footer' %>
   </body>
 </html>

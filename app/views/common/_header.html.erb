@@ -1,13 +1,13 @@
+<div class="welcome span12">
+  Welcome, <%= current_user.name %>!
+</div>
 <div id="header">
-  <div class="left logo">
+  <div class="pull-left">
     <h1><span style="color:navy;">Cyto</span><span style="color:skyblue;">Site</span></h1>
   </div>
-  <div class="welcome right">
-    <span class="user_det">
-      <%= current_user.name %>
-      <%= link_to(image_tag('dwn_arw.png'), '#', :id => 'user_settings') %>
-    </span>
+  <div class="pull-right">
+    <div class="clearfix"></div>
+    <%= render :partial => 'common/main_menu' %>
   </div>
-  <%= render :partial => 'common/dialog_boxes' %>
-  <%= render :partial => 'common/main_menu' %>
+  <div class="clearfix"></div>
 </div>

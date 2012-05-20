@@ -1,33 +1,39 @@
-<div class="login" style="margin-bottom: 20px;">
-  <div class="right sign_up">
-    Not a member?&nbsp;<%= link_to "Sign up here!", new_registration_path(resource_name) %>
-  </div>
-  <div class="clear"></div>
-  <h2>Log in to CytoSite</h2>
-  <div class="login_content">
-    <%= form_for(resource, :as => resource_name, :html => {:class => 'jqtransform'},
-      :url => session_path(resource_name)) do |f| %>
-      <div class="field">
-        <div class="left label"><%= f.label :email %></div>
-        <div class="left"><%= f.email_field :email %></div>
-        <div class="clear"></div>
-      </div>
-      <div class="field">
-        <div class="left label"><%= f.label :password %></div>
-        <div class="left"><%= f.password_field :password %></div>
-        <div class="clear"></div>
-      </div>
-      <div class="remember_me">
-        <div class="left label"><%= f.label :remember_me %></div>
-        <div class="left"><%= f.check_box :remember_me %></div>
-      </div>
-      <div class="right sing_in_button">
-        <%= f.submit :type => :image, :src => "/images/login.png" %>
-      </div>
-      <div class="clear"></div>
-    <% end %>
-    <div class="forgot_password">
-      <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+<div class="span7 offset3">
+  <div class="login_links">
+    <div class="pull-right">
+      Not a member?&nbsp;<%= link_to "Sign up here!", new_registration_path(resource_name) %>
     </div>
+    <div class="clearfix "></div>
   </div>
+  <h3 class="login_header">Log in to CytoSite</h3>
+  <%= form_for(resource, :as => resource_name,
+    :url => session_path(resource_name)) do |f| %>
+    <div class="top">
+      <div class="pull-left span2"><%= f.label :email %></div>
+      <div class="pull-left span4"><%= f.email_field :email %></div>
+      <div class="clearfix "></div>
+    </div>
+    <div class="top">
+      <div class="pull-left span2"><%= f.label :password %></div>
+      <div class="pull-left span4"><%= f.password_field :password %></div>
+      <div class="clearfix "></div>
+    </div>
+    <div>
+      <div class="pull-left span2"><%= f.label :remember_me %></div>
+      <div class="pull-left span4"><%= f.check_box :remember_me %></div>
+      <div class="clearfix "></div>
+    </div>
+    <div class="span5">
+      <div class="pull-right">
+        <%= f.submit "Sign in", :class => 'btn' %>
+      </div>
+    </div>
+    <div class="clearfix "></div>
+    <div class="login_links login_page_top_border">
+      <div class="pull-right">
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+      </div>
+      <div class="clearfix "></div>
+    </div>
+  <% end %>
 </div>

@@ -10,6 +10,8 @@ class ImagesController < ApplicationController
           Image.where(:category_code => params[:category_code])
         end
     @selected_category = params[:category_code]
+    puts '--------------------------------'
+    puts @images
   end
 
   def show
