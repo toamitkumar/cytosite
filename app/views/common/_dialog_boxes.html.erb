@@ -1,8 +1,4 @@
-<div id="UserSettings">
-  <%= link_to "Sign out", destroy_user_session_path %>
-  <br />
-  <%= link_to "Edit Settings", edit_user_path(current_user.id) %>
-</div>
+
 <div id="AdminMenu">
   <%= compute_nav_style('Images', images_url, 'images').html_safe %>
   <br />

@@ -94,6 +94,10 @@ a, a:hover {
   margin: 10px;
 }
 
+a.settings, a:hover.settings {
+  color: skyblue;
+}
+
 /* header and footer styles end */
 
 /* nav bar styles start */
@@ -103,20 +107,24 @@ a, a:hover {
   padding-top: 9px;
 }
 
-#menu ul li {
+#menu ul li.mail_item {
   float: right;
   margin-left: 2px;
 }
 
-#menu a {
+#menu a.main_link {
     color: #504A4B;
     padding: 5px;
     text-decoration: none;
 }
 
-#menu a:hover, #menu a.selected {
+#menu a.main_link:hover, #menu a.main_link.selected {
   color: white;
   background-color: #55B4F4
+}
+
+.admin_item {
+  text-align: right;  
 }
 
 /* nav bar styles end */

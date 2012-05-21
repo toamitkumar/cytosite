@@ -1,13 +1,23 @@
 <div id="menu" class="pull-right  span5">
   <ul>
     <% if current_user.admin? %>
-      <li id ="admin_link"><%= link_to 'Admin ', '#' %></li>
+      <li id="admin_link" class="dropdown mail_item">
+          <a class="admin_settings dropdown main_link" href="#" data-toggle="dropdown">Admin<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="admin_item"><%= compute_nav_style('Images', images_url, 'images').html_safe %></li>
+            <li class="admin_item"><%= compute_nav_style('Questions', questions_url, 'questions').html_safe %></li>
+            <li class="admin_item"><%= compute_nav_style('Self Assessments', assessments_url, 'assessments').html_safe %></li>
+            <li class="admin_item"><%= compute_nav_style('Users', users_url, 'users').html_safe %></li>
+          </ul>
+      </li>
     <% else %>
       <li id ="contact_link"><a>Contact Us</a></li>
     <% end %>
-    <li id ="assessment_link"><%= link_to 'Assessments', assessments_url %></li>
-    <li id ="image_link"><%= link_to 'Images', images_url %></li>
-    <li id ="overview_link"><%= link_to 'Overview', overview_url %></li>
-    <li id ="home_link"><%= link_to 'Home', root_url %></li>
+    <li id ="assessment_link" class="mail_item">
+      <%= link_to 'Assessments', assessments_url, :class =>  'main_link' %>
+    </li>
+    <li id ="image_link" class="mail_item"><%= link_to 'Images', images_url, :class =>  'main_link' %></li>
+    <li id ="overview_link" class="mail_item"><%= link_to 'Overview', overview_url, :class =>  'main_link' %></li>
+    <li id ="home_link" class="mail_item"><%= link_to 'Home', root_url, :class =>  'main_link' %></li>
   </ul>
 </div>
