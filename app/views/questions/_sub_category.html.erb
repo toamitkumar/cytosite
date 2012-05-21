@@ -1,7 +1,7 @@
 <div class="column">
 <div class="level<%= level %>">
     <h3>
-      <%= link_to sub_category.name, images_url(:category_code => sub_category.code), :class => "#{@selected_category == sub_category.code ? 'selected' : ''}" %>
+      <%= link_to sub_category.name, questions_url(:category_code => sub_category.code), :class => "#{@selected_category == sub_category.code ? 'selected' : ''}" %>
     </h3>
     <% unless Category.children(sub_category).size.zero? %>
       <ul>

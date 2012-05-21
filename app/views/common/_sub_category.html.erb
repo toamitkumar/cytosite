@@ -1,0 +1,14 @@
+<div class="column">
+<div class="level<%= level %>">
+    <h3>
+      <%= compute_category_link(sub_category) %>
+    </h3>
+    <% unless Category.children(sub_category).size.zero? %>
+      <ul>
+        <li>
+          <%= render :partial => "/common/sub_category", :collection => Category.children(sub_category), :locals => {:level =>  level + 1} %>
+        </li>
+      </ul>
+    <% end %>          
+  </div>
+</div>

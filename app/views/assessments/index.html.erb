@@ -1,11 +1,10 @@
 <% content_for :title, "All Assessments" %>
 <% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'assessments') %>
+<% content_for :css_include, stylesheet_link_tag('jquery.datatable') %>
 <h2>Self Assessments</h2>
 <% if current_user.admin? %>
    <div>
-    <a href="<%= new_assessment_url %>">
-      <%= image_tag 'add_assessment.png' %>
-    </a>
+    <a href="<%= new_assessment_url %>" class="btn">Add Assessment</a>
   </div>
   <br />
 <% end %>

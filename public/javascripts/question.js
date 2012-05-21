@@ -1,6 +1,16 @@
 jQuery(document).ready(function() {
   jQuery('#option' + jQuery('#correct_option_indx').val()).attr('checked', true);
 
+  $('#question_category_code').change(function(){
+    var cat_code = $(this).val();
+    $.ajax({
+      url: '/images/' + cat_code + "/category_images",
+      success: function(data){
+        $('#image').html(data);
+      }
+    });
+  });
+
   $('.jquery-note_1-1').jQueryNotes({
     operator: '/tags',
     maxNotes: 10,
@@ -11,16 +21,6 @@ jQuery(document).ready(function() {
     allowDelete: false,
     allowReload: false,
     allowLinks: false
-  });
-
-  jQuery('.jqTransformSelectWrapper li a').click(function(){
-    var cat_code = $('#question_category_code').val();
-    $.ajax({
-      url: '/images/' + cat_code + "/category_images",
-      success: function(data){
-        $('#image').html(data);
-      }
-    });
   });
 
   jQuery('#submit_answer').click(function(){
@@ -47,11 +47,6 @@ jQuery(document).ready(function() {
       }
     });
   }
-
-  jQuery('.jqTransformSelectWrapper').width(400);
-  jQuery('.jqTransformSelectWrapper ul').width(308);
-
-  jQuery('.jqTransformRadioWrapper').css('margin-left', 70);
 
   jQuery('#admin_link a').addClass("selected");
 

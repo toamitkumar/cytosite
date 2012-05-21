@@ -4,9 +4,13 @@ class QuestionsController < ApplicationController
   before_filter :category_format, :only => [:index, :new, :edit]
 
   def index
-    @questions = Question.find(:all)
-    @category_hash = Category.find_all_by_code(@questions.collect{|q| q.category_code})
-    puts @category_hash.inspect
+    @questions = if(params[:category_code].blank?) 
+      Question.all
+    else
+      Question.where(:category_code => params[:category_code])
+    end
+    all_categories = Category.find_all_by_code(@questions.collect{|q| q.category_code})
+    @category_hash = Hash[*all_categories.collect { |cat| [cat.code, cat.name]}.flatten]
   end
 
   def show
@@ -26,16 +30,19 @@ class QuestionsController < ApplicationController
     @codes = ['A', 'B', 'C', 'D']
     @question = Question.find(params[:id], :include => :answers)
     @images = Image.find_all_by_category_code(@question.category_code)
+    puts @images.inspect
   end
 
   def new
-    @images = Image.find_all_by_category_code('overview')
+    @images = Image.find_all_by_category_code(@categories[0][1])
+    puts @categories.inspect
     @codes = ['A', 'B', 'C', 'D']
   end
 
   def create    
     Question.transaction do      
       question = Question.create!(params[:question])
+      puts question.inspect
       Answer.create_answers_for_question(params, question.id)
     end
     redirect_to questions_path

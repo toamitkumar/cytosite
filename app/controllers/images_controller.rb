@@ -10,8 +10,6 @@ class ImagesController < ApplicationController
           Image.where(:category_code => params[:category_code])
         end
     @selected_category = params[:category_code]
-    puts '--------------------------------'
-    puts @images
   end
 
   def show
@@ -29,15 +27,6 @@ class ImagesController < ApplicationController
   def create
     Image.create_with_s3(params)
     redirect_to images_path
-    
-    # Image.transaction do
-    #   format = params[:upload]['datafile'].original_filename.split('.').last
-    #   params[:image][:format] = format
-    #   image = Image.create!(params[:image])
-    #   ImageFile.save(params[:upload], image.id, format)
-    #   ImageFile.save_thumbnail(image.id, format)
-    # end
-    # redirect_to images_path
   end
 
   def update

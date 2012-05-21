@@ -1,17 +1,20 @@
 <% content_for :title, "All Questions" %>
-<% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'questions') %>
+<% content_for :js_include, javascript_include_tag('questions', 'jkmegamenu') %>
+<% content_for :css_include, stylesheet_link_tag('jkmegamenu') %>
 <h2>All Questions</h2>
-<div>
-  <div>
-    <a href="<%= new_question_url %>">
-      <%= image_tag 'add_question.png' %>
-    </a>
+<div class="top">
+  <div class="pull-left">
+    <%= render :partial => '/common/category' %>
   </div>
+  <div class="pull-left">
+    <a href="<%= new_question_url %>" class="btn">Add Question</a>
+  </div>
+  <div class="clearfix"></div>
 </div>
 <br />
 <div>
   <% if @questions.size > 0 %>
-    <table id="questionsTable">
+    <table id="questionsTable" class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>Question</th>
@@ -25,11 +28,11 @@
         <% @questions.each do |question| %>
         <tr>
           <td><%= link_to question.question, edit_question_path(question.id) %></td>
-          <% categories = @category_hash.select{|cat| cat.code == question.category_code} %>
-          <td><%= categories.empty?? "" : categories.first.name %></td>
+          <% categories = @category_hash.select{|cat| cat[0] == question.category_code} %>
+          <td><%= categories.empty?? "" : categories[0][1]%></td>
           <td><%= question.created_at.strftime("%Y-%m-%d") unless question.created_at.nil? %></td>
           <td><%= question.published ? 'Yes' : 'No' %></td>
-          <td><%= link_to 'Delete', question_path(question.id), :method => :delete %></td>
+          <td><%= link_to 'Delete', question_path(question.id), :class=> 'btn btn-danger', :method => :delete %></td>
         </tr>
         <% end %>
       </tbody>

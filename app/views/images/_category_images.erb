@@ -1,18 +1,17 @@
 <% unless @images.empty? %>
-  <div class="left image_form_label">
+  <div class="pull-left span2">
     <label>Image:</label>
   </div>
   <div class="left">
     <% if @question.nil? %>
-      <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name"), 
-        :class => 'jqtransform' %>
+      <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name") %>
     <% else %>
       <%= select_tag "question[image_id]", options_from_collection_for_select(@images, "id", "name", @question.image_id) %>
     <% end %>
   </div>
 <% else %>
-  <div class="left image_form_label">
+  <div class="pull-left span2">
     <label>Image:</label>
   </div>
- <div class="left">There are no images for this category in the tool yet.</div>
+ <div class="pull-left">There are no images for this category in the tool yet.</div>
 <% end %>

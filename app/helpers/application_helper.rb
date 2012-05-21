@@ -5,7 +5,7 @@ module ApplicationHelper
     elem = if is_link
       link_to link_name, link_url
     else
-      "<strong>#{link_name}</strong>"
+      "<strong style='margin-right:15px;'>#{link_name}</strong>"
     end
     elem
   end
@@ -31,6 +31,17 @@ module ApplicationHelper
         '"H":"' + date.hour.to_s + '","I":"' + date.min.to_s + '"}}'
     end
     '[' + tags_array.join(',') + ']'
+  end
+
+  def compute_category_link(sub_category)
+    return case
+    when params[:controller] == 'images'
+      link_to sub_category.name, images_url(:category_code => sub_category.code), 
+        :class => "#{@selected_category == sub_category.code ? 'selected' : ''}"
+    when params[:controller] == 'questions'
+      link_to sub_category.name, questions_url(:category_code => sub_category.code), 
+        :class => "#{@selected_category == sub_category.code ? 'selected' : ''}"
+    end
   end
 
 end

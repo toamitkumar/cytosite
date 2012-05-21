@@ -1,62 +1,66 @@
 <% content_for :title, "New Question" %>
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'question') %>
 <h2>New Question</h2>
-<div>
+<div class="top">
   <%= form_for Question.new, :url => questions_path, :html => {:class => 'jqtransform'} do |f| %>
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Question:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.text_area :question, :rows => 2, :style => 'height: 70px;' %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Category:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.select :category_code, @categories %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div id="image">
       <%= render :partial => 'images/category_images' %>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Explanation:' %>
       </div>
-      <div class="left">
+      <div class="pull-left">
         <%= f.text_area :explanation, :style => 'height: 105px;' %>
       </div>
     </div>
-    <div class="clear"></div>
-    <div class="left" style="margin-left: 550px; font-weight: bold">Correct Option</div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
+    <div class="pull-left" style="margin-left: 435px; font-weight: bold">Correct Option</div>
+    <div class="clearfix"></div>
     <% (0..3).each do |i| %>
       <div>
-        <div class="left image_form_label">
+        <div class="pull-left span2">
           <label>Option <%= @codes[i] %>:</label>
         </div>
-        <div class="left question_option">
-          <input name="option<%= i %>[option]" style="width: 398px" value="" />
-          <input type="radio" id="option<%= i %>" name="correct_option" style="margin-left: 50px;" value="<%= i %>" />
+        <div class="pull-left">
+          <div class="pull-left">
+            <input name="option<%= i %>[option]"value="" />
+          </div>
+          <div class="pull-left offset1">
+            <input type="radio" id="option<%= i %>" name="correct_option" value="<%= i %>" />
+          </div>
         </div>
       </div>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     <% end %>
-    <div class="question_form_submit">
+    <div class="top" style="margin-left: 220px;">
       <%= link_to 'cancel', questions_path %>
       <span>
-        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+        <%= f.submit 'Create Question', :class => 'btn'  %>
       </span>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     </div>
   <% end %>
 </div>

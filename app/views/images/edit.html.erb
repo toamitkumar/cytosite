@@ -33,7 +33,7 @@
     <br />
     <div class="span5" style="text-align: right;">
       <%= link_to 'cancel', images_path %>
-      <%= link_to 'Delete Image', image_path(@image.id), :class => 'btn', :method => :delete %>
+      <%= link_to 'Delete Image', image_path(@image.id), :class => 'btn btn-danger', :method => :delete %>
       <span style="margin-right: 20px;">
         <%= f.submit 'Save Image', :class => 'btn' %>
       </span>
