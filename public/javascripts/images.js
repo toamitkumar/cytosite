@@ -1,11 +1,11 @@
 jQuery(document).ready(function() {
 
-	$("a.thumb").click(function() {
-		var that = $(this);
+  $("a.thumb").click(function() {
+    var that = $(this);
     addCaption(that);
     addAdminEditLink(that.attr("data-link"));
     updateImageId(that);
-	});
+  });
 
   jkmegamenu.definemenu("megaanchor1", "megamenu1", "click");
 

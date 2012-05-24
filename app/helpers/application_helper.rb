@@ -47,4 +47,15 @@ module ApplicationHelper
     end
   end
 
+    def all_categories_link
+    return case
+    when params[:controller] == 'images'
+      url_for images_url
+    when params[:controller] == 'questions'
+      url_for questions_url
+    when params[:controller] == 'assessments'
+      url_for assessments_url
+    end
+  end
+
 end

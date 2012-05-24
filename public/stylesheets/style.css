@@ -27,6 +27,7 @@ label {
 .box {
   background: none repeat scroll 0 0 #504A4B;
   padding: 20px 0;
+  border-radius: 10px;
 }
 
 .top {
@@ -37,6 +38,30 @@ a, a:hover {
     color: #FFFFFF;
     text-decoration: none;
 }
+
+/* Hacked table styles start */
+
+.table th {
+  background-color: grey;
+}
+
+.table td {
+  background-color: darkgray;
+}
+
+.table tbody tr:hover td {
+  background-color: white;
+}
+
+.table td, .table th, .table td a {
+  color: black;
+}
+
+.table td a.btn {
+  color: white;
+}
+
+/* Hacked table styles end */
 
 /* home page styles start */
 
@@ -86,6 +111,7 @@ a, a:hover {
 
 .welcome {
   text-align: right;
+  font-size: 11px;
   margin: 5px -10px;
   position: absolute;
 }

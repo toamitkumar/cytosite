@@ -1,6 +1,9 @@
 <% content_for :title, "All Users" %>
-<% content_for :js_include, javascript_include_tag('users') %>
+<% content_for :js_include, javascript_include_tag('bootstrap-typeahead', 'users') %>
 <h2>All Users</h2>
+<div class="user_suggest top">
+  <input type="text" class="typeahead" />
+</div>
 <div class="top">
   <table id="questionsTable" class="table table-striped table-bordered">
     <thead>

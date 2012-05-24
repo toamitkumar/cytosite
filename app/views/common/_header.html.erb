@@ -1,9 +1,9 @@
 <div class="welcome span12">
   <ul class="nav"><li class="dropdown">
-  	<a href="#" class="settings" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
-  	<ul class="dropdown-menu pull-right">
-	  <li><%= link_to "Sign out", destroy_user_session_path %></li>
-	  <li><%= link_to "User Settings", edit_user_path(current_user.id) %></li>
+    <a href="#" class="settings" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
+    <ul class="dropdown-menu pull-right">
+      <li><%= link_to "User Settings", edit_user_path(current_user.id) %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path %></li>
     </ul>
   </li></ul>
 </div>

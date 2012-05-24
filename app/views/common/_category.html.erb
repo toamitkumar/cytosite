@@ -1,5 +1,6 @@
 <!--Mega Menu Anchor-->
-<a href="#" id="megaanchor1" class="btn" style="margin-right: 10px;">Show Categories</a>
+<a href="<%= all_categories_link %>" class="btn">All Categories</a>
+<a href="#" id="megaanchor1" class="btn" style="margin-right: 5px;">Show Categories</a>
 <div id="megamenu1" class="megamenu">
   <%= render :partial => "/common/sub_category", :collection => Category.children, :locals => {:level => 0} %>
 </div>

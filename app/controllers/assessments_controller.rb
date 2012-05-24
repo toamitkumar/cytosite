@@ -11,6 +11,7 @@ class AssessmentsController < ApplicationController
     end
     all_categories = Category.find_all_by_code(@assessments.collect{|a| a.category_code})
     @category_hash = Hash[*all_categories.collect { |cat| [cat.code, cat.name]}.flatten]
+    @selected_category = params[:category_code]
   end
 
   def show
