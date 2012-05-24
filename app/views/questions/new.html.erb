@@ -2,13 +2,13 @@
 <% content_for :js_include, javascript_include_tag('jquery-ui-1.8.16.min', 'jquery-notes_1.0.8_min', 'question') %>
 <h2>New Question</h2>
 <div class="top">
-  <%= form_for Question.new, :url => questions_path, :html => {:class => 'jqtransform'} do |f| %>
+  <%= form_for Question.new, :url => questions_path do |f| %>
     <div>
       <div class="pull-left span2">
         <%= f.label 'Question:' %>
       </div>
       <div class="pull-left">
-        <%= f.text_area :question, :rows => 2, :style => 'height: 70px;' %>
+        <%= f.text_area :question, :rows => 2 %>
       </div>
     </div>
     <div class="clearfix"></div>

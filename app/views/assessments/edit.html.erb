@@ -1,47 +1,47 @@
 <% content_for :title, "Edit Assessment" %>
 <% content_for :js_include, javascript_include_tag('assessment') %>
 <h2>Edit Assessment</h2>
-<div>
+<div class="top">
   <%= form_for @assessment, :url => assessment_path, :html => {:class => 'jqtransform'} do |f| %>
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Name:' %>
       </div>
       <div class="left">
         <%= f.text_field :name, :rows => 2 %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Description:' %>
       </div>
       <div class="left">
         <%= f.text_area :description, :style => 'height: 105px; width: 300px;' %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div>
-      <div class="left image_form_label">
+      <div class="pull-left span2">
         <%= f.label 'Category:' %>
       </div>
       <div class="left">
         <%= f.select :category_code, @categories %>
       </div>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
     <br />
     <div id="questions">
       <%= render :partial => 'questions/assessment_questions' %>
     </div>
-    <div class="assessment_form_submit">
+    <div class="top" style="margin-left: 207px;">
       <%= link_to 'cancel', assessments_path %>
       <span>
-        <%= f.submit 'Save', :type => :image, :src => "/images/save_btn.png" %>
+        <%= f.submit 'Save Assessment', :class => 'btn'  %>
       </span>
-      <div class="clear"></div>
+      <div class="clearfix"></div>
     </div>
   <% end %>
 </div>

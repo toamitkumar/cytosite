@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
-  jQuery('#questionsTable').dataTable({
-    "aoColumns": [{"bSortable": true}, {"bSortable": true},
-      {"bSortable": true}, {"bSortable": true}]
-  });
+
+  jQuery('#assessment_link a').addClass("selected");
+
+  jkmegamenu.definemenu("megaanchor1", "megamenu1", "click");
+
 });

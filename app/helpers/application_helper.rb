@@ -41,6 +41,9 @@ module ApplicationHelper
     when params[:controller] == 'questions'
       link_to sub_category.name, questions_url(:category_code => sub_category.code), 
         :class => "#{@selected_category == sub_category.code ? 'selected' : ''}"
+    when params[:controller] == 'assessments'
+      link_to sub_category.name, assessments_url(:category_code => sub_category.code),
+        :class => "#{@selected_category == sub_category.code ? 'selected' : ''}"
     end
   end
 

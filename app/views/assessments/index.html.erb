@@ -1,16 +1,21 @@
 <% content_for :title, "All Assessments" %>
-<% content_for :js_include, javascript_include_tag('jquery.dataTables.min', 'assessments') %>
-<% content_for :css_include, stylesheet_link_tag('jquery.datatable') %>
+<% content_for :js_include, javascript_include_tag('assessments', 'jkmegamenu') %>
+<% content_for :css_include, stylesheet_link_tag('jkmegamenu') %>
 <h2>Self Assessments</h2>
-<% if current_user.admin? %>
-   <div>
-    <a href="<%= new_assessment_url %>" class="btn">Add Assessment</a>
+<div class="top">
+  <div class="pull-left">
+    <%= render :partial => '/common/category' %>
   </div>
-  <br />
-<% end %>
+  <% if current_user.admin? %>
+     <div>
+      <a href="<%= new_assessment_url %>" class="btn">Add Assessment</a>
+    </div>
+  <% end %>
+</div>
+<br />
 <div>
   <% if @assessments.size > 0 %>
-    <table id="questionsTable">
+    <table id="questionsTable" class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>Assessment</th>
@@ -25,9 +30,10 @@
           <% assessment_path = assessment_path(assessment.id) %>
           <% assessment_path = edit_assessment_path(assessment.id) if current_user.admin? %>
           <td><%= link_to assessment.name, assessment_path %></td>
-          <td><%= @categories[assessment.category_code] %></td>
+          <% categories = @category_hash.select{|cat| cat[0] == assessment.category_code} %>
+          <td><%= categories.empty?? "" : categories[0][1]%></td>
           <td><%= assessment.created_at.strftime("%Y-%m-%d") unless assessment.created_at.nil? %></td>
-          <td><%= link_to 'Delete', assessment_path(assessment.id), :method => :delete %></td>
+          <td><%= link_to 'Delete', assessment_path(assessment.id), :class => 'btn btn-danger' ,:method => :delete %></td>
         </tr>
         <% end %>
       </tbody>

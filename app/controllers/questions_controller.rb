@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :correct_answer, :correct_option]
-  before_filter :category_format, :only => [:index, :new, :edit]
+  before_filter :category_format, :only => [:new, :edit]
 
   def index
     @questions = if(params[:category_code].blank?) 
@@ -35,7 +35,6 @@ class QuestionsController < ApplicationController
 
   def new
     @images = Image.find_all_by_category_code(@categories[0][1])
-    puts @categories.inspect
     @codes = ['A', 'B', 'C', 'D']
   end
 
@@ -58,7 +57,7 @@ class QuestionsController < ApplicationController
   end
 
   def assessment_questions
-    category_code = params[:id].gsub('-- ', '')
+    category_code = params[:id]
     @questions = Question.find_all_by_category_code(category_code)
     render :partial => 'assessment_questions'
   end

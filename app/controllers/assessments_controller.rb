@@ -1,10 +1,16 @@
 class AssessmentsController < ApplicationController
   layout 'common'
   before_filter :admin_resource?, :except => [:show, :index, :summary, :reset]
-  before_filter :category_format, :only => [:index, :new, :edit]
+  before_filter :category_format, :only => [:new, :edit]
 
   def index
-    @assessments = Assessment.all
+    @assessments = if(params[:category_code].blank?)
+      Assessment.all
+    else
+      Assessment.where(:category_code => params[:category_code])
+    end
+    all_categories = Category.find_all_by_code(@assessments.collect{|a| a.category_code})
+    @category_hash = Hash[*all_categories.collect { |cat| [cat.code, cat.name]}.flatten]
   end
 
   def show
@@ -14,7 +20,7 @@ class AssessmentsController < ApplicationController
   end
 
   def new
-    @questions = Question.find_all_by_category_code('overview')
+    @questions = Question.find_all_by_category_code(@categories[0][1])
   end
 
   def create

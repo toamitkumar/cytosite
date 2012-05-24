@@ -1,8 +1,8 @@
 <% unless @questions.empty? %>
-  <div class="left image_form_label">
+  <div class="pull-left span2">
     <label>Questions:</label>
   </div>
-  <div class="left">
+  <div class="pull-left">
     <% (1..10).each do |indx| %>
       <div>
         <% if @assessment_questions.nil? %>
@@ -16,9 +16,9 @@
     <% end %>
   </div>
 <% else %>
-  <div class="left image_form_label">
+  <div class="pull-left span2">
     <label>Questions:</label>
   </div>
-  <div class="left">There are no questions for this category in the tool yet.</div>
+  <div class="pull-left">There are no questions for this category in the tool yet.</div>
 <% end %>
-<div class="clear"></div>
+<div class="clearfix"></div>
