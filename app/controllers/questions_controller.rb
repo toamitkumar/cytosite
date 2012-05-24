@@ -5,12 +5,10 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = if(params[:category_code].blank?) 
-      Question.all
+      Question.includes(:category)
     else
-      Question.where(:category_code => params[:category_code])
+      Question.where(:category_code => params[:category_code]).includes(:category)
     end
-    all_categories = Category.find_all_by_code(@questions.collect{|q| q.category_code})
-    @category_hash = Hash[*all_categories.collect { |cat| [cat.code, cat.name]}.flatten]
     @selected_category = params[:category_code]
   end
 

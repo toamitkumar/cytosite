@@ -109,6 +109,10 @@ a, a:hover {
   margin: 20px 10px;
 }
 
+.dropdown-menu a {
+  font-size: 14px;
+}
+
 .welcome {
   text-align: right;
   font-size: 11px;

@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
     @images = if(params[:category_code].blank?) 
           Image.includes(:category)
         else
-          Image.where(:category_code => params[:category_code])
+          Image.where(:category_code => params[:category_code]).includes(:category)
         end
     @selected_category = params[:category_code]
   end

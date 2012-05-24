@@ -5,12 +5,10 @@ class AssessmentsController < ApplicationController
 
   def index
     @assessments = if(params[:category_code].blank?)
-      Assessment.all
+      Assessment.includes(:category)
     else
-      Assessment.where(:category_code => params[:category_code])
+      Assessment.where(:category_code => params[:category_code]).includes(:category)
     end
-    all_categories = Category.find_all_by_code(@assessments.collect{|a| a.category_code})
-    @category_hash = Hash[*all_categories.collect { |cat| [cat.code, cat.name]}.flatten]
     @selected_category = params[:category_code]
   end
 

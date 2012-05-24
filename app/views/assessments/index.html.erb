@@ -30,8 +30,7 @@
           <% assessment_path = assessment_path(assessment.id) %>
           <% assessment_path = edit_assessment_path(assessment.id) if current_user.admin? %>
           <td><%= link_to assessment.name, assessment_path %></td>
-          <% categories = @category_hash.select{|cat| cat[0] == assessment.category_code} %>
-          <td><%= categories.empty?? "" : categories[0][1]%></td>
+          <td><%= assessment.category.nil?? "" : assessment.category.name %></td>
           <td><%= assessment.created_at.strftime("%Y-%m-%d") unless assessment.created_at.nil? %></td>
           <td><%= link_to 'Delete', assessment_path(assessment.id), :class => 'btn btn-danger' ,:method => :delete %></td>
         </tr>
